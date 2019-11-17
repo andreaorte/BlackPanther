@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dtpuFechaIngreso = new System.Windows.Forms.DateTimePicker();
+            this.dtpFechaIngreso = new System.Windows.Forms.DateTimePicker();
             this.lblFechaIngreso = new System.Windows.Forms.Label();
             this.lblTipoUsuario = new System.Windows.Forms.Label();
             this.cboTipoUsuario = new System.Windows.Forms.ComboBox();
@@ -51,20 +51,22 @@
             this.lblCodigoHumano = new System.Windows.Forms.Label();
             this.txtNroDocumento = new System.Windows.Forms.TextBox();
             this.txtCodigoHumano = new System.Windows.Forms.TextBox();
+            this.txtId = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // dtpuFechaIngreso
+            // dtpFechaIngreso
             // 
-            this.dtpuFechaIngreso.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpuFechaIngreso.Location = new System.Drawing.Point(435, 278);
-            this.dtpuFechaIngreso.Name = "dtpuFechaIngreso";
-            this.dtpuFechaIngreso.Size = new System.Drawing.Size(170, 20);
-            this.dtpuFechaIngreso.TabIndex = 7;
+            this.dtpFechaIngreso.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpFechaIngreso.Location = new System.Drawing.Point(461, 295);
+            this.dtpFechaIngreso.Name = "dtpFechaIngreso";
+            this.dtpFechaIngreso.Size = new System.Drawing.Size(170, 20);
+            this.dtpFechaIngreso.TabIndex = 7;
             // 
             // lblFechaIngreso
             // 
             this.lblFechaIngreso.AutoSize = true;
-            this.lblFechaIngreso.Location = new System.Drawing.Point(331, 278);
+            this.lblFechaIngreso.Location = new System.Drawing.Point(351, 295);
             this.lblFechaIngreso.Name = "lblFechaIngreso";
             this.lblFechaIngreso.Size = new System.Drawing.Size(90, 13);
             this.lblFechaIngreso.TabIndex = 88;
@@ -73,7 +75,7 @@
             // lblTipoUsuario
             // 
             this.lblTipoUsuario.AutoSize = true;
-            this.lblTipoUsuario.Location = new System.Drawing.Point(325, 242);
+            this.lblTipoUsuario.Location = new System.Drawing.Point(351, 259);
             this.lblTipoUsuario.Name = "lblTipoUsuario";
             this.lblTipoUsuario.Size = new System.Drawing.Size(85, 13);
             this.lblTipoUsuario.TabIndex = 87;
@@ -83,7 +85,7 @@
             // 
             this.cboTipoUsuario.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboTipoUsuario.FormattingEnabled = true;
-            this.cboTipoUsuario.Location = new System.Drawing.Point(457, 239);
+            this.cboTipoUsuario.Location = new System.Drawing.Point(483, 256);
             this.cboTipoUsuario.Name = "cboTipoUsuario";
             this.cboTipoUsuario.Size = new System.Drawing.Size(108, 21);
             this.cboTipoUsuario.TabIndex = 6;
@@ -91,7 +93,7 @@
             // lblCargo
             // 
             this.lblCargo.AutoSize = true;
-            this.lblCargo.Location = new System.Drawing.Point(325, 206);
+            this.lblCargo.Location = new System.Drawing.Point(351, 223);
             this.lblCargo.Name = "lblCargo";
             this.lblCargo.Size = new System.Drawing.Size(38, 13);
             this.lblCargo.TabIndex = 85;
@@ -101,7 +103,7 @@
             // 
             this.cboCargo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCargo.FormattingEnabled = true;
-            this.cboCargo.Location = new System.Drawing.Point(457, 203);
+            this.cboCargo.Location = new System.Drawing.Point(483, 220);
             this.cboCargo.Name = "cboCargo";
             this.cboCargo.Size = new System.Drawing.Size(108, 21);
             this.cboCargo.TabIndex = 5;
@@ -109,7 +111,7 @@
             // lblDepartamnto
             // 
             this.lblDepartamnto.AutoSize = true;
-            this.lblDepartamnto.Location = new System.Drawing.Point(325, 173);
+            this.lblDepartamnto.Location = new System.Drawing.Point(351, 190);
             this.lblDepartamnto.Name = "lblDepartamnto";
             this.lblDepartamnto.Size = new System.Drawing.Size(77, 13);
             this.lblDepartamnto.TabIndex = 83;
@@ -119,7 +121,7 @@
             // 
             this.cboDepartamento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboDepartamento.FormattingEnabled = true;
-            this.cboDepartamento.Location = new System.Drawing.Point(457, 170);
+            this.cboDepartamento.Location = new System.Drawing.Point(483, 187);
             this.cboDepartamento.Name = "cboDepartamento";
             this.cboDepartamento.Size = new System.Drawing.Size(108, 21);
             this.cboDepartamento.TabIndex = 4;
@@ -127,7 +129,7 @@
             // lblApellido
             // 
             this.lblApellido.AutoSize = true;
-            this.lblApellido.Location = new System.Drawing.Point(325, 144);
+            this.lblApellido.Location = new System.Drawing.Point(351, 161);
             this.lblApellido.Name = "lblApellido";
             this.lblApellido.Size = new System.Drawing.Size(47, 13);
             this.lblApellido.TabIndex = 81;
@@ -136,7 +138,7 @@
             // lblNombre
             // 
             this.lblNombre.AutoSize = true;
-            this.lblNombre.Location = new System.Drawing.Point(325, 122);
+            this.lblNombre.Location = new System.Drawing.Point(351, 139);
             this.lblNombre.Name = "lblNombre";
             this.lblNombre.Size = new System.Drawing.Size(47, 13);
             this.lblNombre.TabIndex = 80;
@@ -144,14 +146,14 @@
             // 
             // txtApellido
             // 
-            this.txtApellido.Location = new System.Drawing.Point(457, 141);
+            this.txtApellido.Location = new System.Drawing.Point(483, 158);
             this.txtApellido.Name = "txtApellido";
             this.txtApellido.Size = new System.Drawing.Size(148, 20);
             this.txtApellido.TabIndex = 3;
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(457, 115);
+            this.txtNombre.Location = new System.Drawing.Point(483, 132);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(148, 20);
             this.txtNombre.TabIndex = 2;
@@ -228,7 +230,7 @@
             // lblNroDocumento
             // 
             this.lblNroDocumento.AutoSize = true;
-            this.lblNroDocumento.Location = new System.Drawing.Point(325, 92);
+            this.lblNroDocumento.Location = new System.Drawing.Point(351, 109);
             this.lblNroDocumento.Name = "lblNroDocumento";
             this.lblNroDocumento.Size = new System.Drawing.Size(98, 13);
             this.lblNroDocumento.TabIndex = 70;
@@ -237,7 +239,7 @@
             // lblCodigoHumano
             // 
             this.lblCodigoHumano.AutoSize = true;
-            this.lblCodigoHumano.Location = new System.Drawing.Point(325, 62);
+            this.lblCodigoHumano.Location = new System.Drawing.Point(351, 79);
             this.lblCodigoHumano.Name = "lblCodigoHumano";
             this.lblCodigoHumano.Size = new System.Drawing.Size(86, 13);
             this.lblCodigoHumano.TabIndex = 69;
@@ -245,24 +247,43 @@
             // 
             // txtNroDocumento
             // 
-            this.txtNroDocumento.Location = new System.Drawing.Point(457, 85);
+            this.txtNroDocumento.Location = new System.Drawing.Point(483, 102);
             this.txtNroDocumento.Name = "txtNroDocumento";
             this.txtNroDocumento.Size = new System.Drawing.Size(148, 20);
             this.txtNroDocumento.TabIndex = 1;
             // 
             // txtCodigoHumano
             // 
-            this.txtCodigoHumano.Location = new System.Drawing.Point(457, 55);
+            this.txtCodigoHumano.Location = new System.Drawing.Point(483, 72);
             this.txtCodigoHumano.Name = "txtCodigoHumano";
             this.txtCodigoHumano.Size = new System.Drawing.Size(148, 20);
             this.txtCodigoHumano.TabIndex = 0;
+            // 
+            // txtId
+            // 
+            this.txtId.Location = new System.Drawing.Point(483, 41);
+            this.txtId.Name = "txtId";
+            this.txtId.ReadOnly = true;
+            this.txtId.Size = new System.Drawing.Size(148, 20);
+            this.txtId.TabIndex = 90;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(351, 44);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(19, 13);
+            this.label1.TabIndex = 89;
+            this.label1.Text = "Id:";
             // 
             // frmUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(731, 459);
-            this.Controls.Add(this.dtpuFechaIngreso);
+            this.Controls.Add(this.txtId);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.dtpFechaIngreso);
             this.Controls.Add(this.lblFechaIngreso);
             this.Controls.Add(this.lblTipoUsuario);
             this.Controls.Add(this.cboTipoUsuario);
@@ -295,7 +316,7 @@
 
         #endregion
 
-        private System.Windows.Forms.DateTimePicker dtpuFechaIngreso;
+        private System.Windows.Forms.DateTimePicker dtpFechaIngreso;
         private System.Windows.Forms.Label lblFechaIngreso;
         private System.Windows.Forms.Label lblTipoUsuario;
         private System.Windows.Forms.ComboBox cboTipoUsuario;
@@ -318,5 +339,7 @@
         private System.Windows.Forms.Label lblCodigoHumano;
         private System.Windows.Forms.TextBox txtNroDocumento;
         private System.Windows.Forms.TextBox txtCodigoHumano;
+        private System.Windows.Forms.TextBox txtId;
+        private System.Windows.Forms.Label label1;
     }
 }

@@ -46,7 +46,7 @@ namespace Marker
             cboDepartamento.SelectedItem = null;
             cboCargo.SelectedItem = null;
             cboTipoUsuario.SelectedItem = null;
-            dtpuFechaIngreso.Value = DateTime.Now;
+            dtpFechaIngreso.Value = DateTime.Now;
 
         }
         private void frmUsuario_Load(object sender, EventArgs e)
@@ -72,7 +72,7 @@ namespace Marker
             cboCargo.Enabled = false;
             cboDepartamento.Enabled = false;
             cboTipoUsuario.Enabled = false;
-            dtpuFechaIngreso.Enabled = false;
+            dtpFechaIngreso.Enabled = false;
 
             btnGuardar.Enabled = false;
             btnCancelar.Enabled = false;
@@ -94,7 +94,7 @@ namespace Marker
             cboCargo.Enabled = true;
             cboDepartamento.Enabled = true;
             cboTipoUsuario.Enabled = true;
-            dtpuFechaIngreso.Enabled = true;
+            dtpFechaIngreso.Enabled = true;
 
             btnGuardar.Enabled = true;
             btnCancelar.Enabled = true;
@@ -155,7 +155,7 @@ namespace Marker
             u.Nombre = txtNombre.Text;
             u.Apellido= txtApellido.Text;
             u.NroDocumento = txtNroDocumento.Text;
-            u.FechaIngreso = dtpuFechaIngreso.Value.Date;
+            u.FechaIngreso = dtpFechaIngreso.Value.Date;
            u.departamento = (Departamento)cboDepartamento.SelectedItem;
             u.cargo = (Cargo)cboCargo.SelectedItem;
             u.tipoUsuario = (TipoUsuario)cboTipoUsuario.SelectedItem;
@@ -191,21 +191,22 @@ namespace Marker
             }
         }
 
+
+
         private void lstUsuario_Click(object sender, EventArgs e)
         {
-            Usuari u = (Usuari)lstUsuario.SelectedItem;
-            if (u != null)
-            {
-                txtCodigoHumano.Text = u.CodigoHumano;
-                txtNombre.Text = u.Nombre;
-                txtApellido.Text = u.Apellido;
-                txtNroDocumento.Text = u.NroDocumento;
-                cboCargo.SelectedItem = u.cargo;
-                cboDepartamento.SelectedItem = u.departamento;
-                cboTipoUsuario.SelectedItem = u.tipoUsuario;
-                dtpuFechaIngreso.Value = u.FechaIngreso;
+            Usuari usuario = (Usuari)lstUsuario.SelectedItem;
 
-            }
+            txtId.Text = Convert.ToString(usuario.Id);
+            txtNombre.Text = usuario.Nombre;
+            txtApellido.Text = usuario.Apellido;
+            txtNroDocumento.Text = usuario.NroDocumento;
+            txtCodigoHumano.Text = usuario.CodigoHumano;
+            cboDepartamento.SelectedItem = usuario.departamento;
+            cboCargo.SelectedItem = usuario.cargo;
+            dtpFechaIngreso.Value = usuario.FechaIngreso;
+            cboTipoUsuario.SelectedItem = usuario.tipoUsuario;
+
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -233,7 +234,7 @@ namespace Marker
                 cboDepartamento.SelectedItem = u.departamento;
                 cboCargo.SelectedItem = u.cargo;
                 cboTipoUsuario.SelectedItem = u.tipoUsuario;
-                dtpuFechaIngreso.Value = u.FechaIngreso;
+                dtpFechaIngreso.Value = u.FechaIngreso;
 
             }
 
@@ -255,60 +256,50 @@ namespace Marker
 
         private void btnEditar_Click_1(object sender, EventArgs e)
         {
-            if (this.lstUsuario.SelectedItems.Count == 0)
+            Usuari usuario = (Usuari)lstUsuario.SelectedItem;
+            if (usuario != null)
             {
-                MessageBox.Show("Favor seleccione una fila");
+                modo = "E";
+                DesbloquearFormulario();
             }
             else
             {
-                modo = "EDITAR";
-                DesbloquearFormulario();
-                txtCodigoHumano.Focus();
+                MessageBox.Show("Ojo, Selecciona un Item");
             }
         }
 
         private void btnEliminar_Click_1(object sender, EventArgs e)
         {
-            if (this.lstUsuario.SelectedItems.Count == 0)
+            Usuari usuario = (Usuari)lstUsuario.SelectedItem;
+            if (usuario != null)
             {
-                MessageBox.Show("Favor seleccione una fila");
+                Usuari.EliminarUsuario(usuario);
+                ActualizarListaUsuario();
+                LimpiarFormulario();
             }
             else
             {
-                Usuari u = (Usuari)lstUsuario.SelectedItem;
-                Usuari.EliminarUsuario(u);
-                ActualizarListaUser();
-                LimpiarFormulario();
+                MessageBox.Show("Favor seleccionar una fila de la lista");
             }
         }
 
         private void btnGuardar_Click_1(object sender, EventArgs e)
         {
-            if (cboTipoUsuario.SelectedItem != null)
+            if (modo == "I")
             {
-            
-            if (modo == "AGREGAR")
-            {
-                Usuari usuario = ObtenerUserFormulario(); 
+                Usuari usuario = ObtenerUsuarioFormulario();
                 Usuari.AgregarUsuario(usuario);
             }
-            else if (modo == "EDITAR")
+            else if (modo == "E")
             {
                 int index = lstUsuario.SelectedIndex;
+                Usuari usuario = ObtenerUsuarioFormulario();
+                Usuari.EditarUsuario(index, usuario);
+            }
 
-                Usuari.listarUsuario[index] = ObtenerUserFormulario();
-            }
-                ActualizarListaUser();
-                LimpiarFormulario();
-                BloquearFormulario();
-            }
-          
-           
-               else 
-            {
-                MessageBox.Show("Debe de seleccionar el tipo de usuario");
-                cboTipoUsuario.Focus();
-            }
+            ActualizarListaUsuario();
+            LimpiarFormulario();
+            BloquearFormulario();
 
         }
 
@@ -321,6 +312,35 @@ namespace Marker
         {
             LimpiarFormulario();
             BloquearFormulario();
+        }
+
+        private void ActualizarListaUsuario()
+        {
+            lstUsuario.DataSource = null;
+            lstUsuario.DataSource = Usuari.ObtenerUsuario();
+        }
+
+        private Usuari ObtenerUsuarioFormulario()
+        {
+            Usuari usuario = new Usuari();
+            if (!string.IsNullOrEmpty(txtId.Text))
+            {
+                usuario.Id = Convert.ToInt32(txtId.Text);
+            }
+
+            usuario.Nombre = txtNombre.Text;
+            usuario.Apellido = txtApellido.Text;
+            usuario.NroDocumento = txtNroDocumento.Text;
+            usuario.CodigoHumano = txtCodigoHumano.Text;
+            usuario.departamento = (Departamento)cboDepartamento.SelectedItem;
+            usuario.cargo = (Cargo)cboCargo.SelectedItem;
+            usuario.FechaIngreso = dtpFechaIngreso.Value.Date;
+            usuario.tipoUsuario = (TipoUsuario)cboTipoUsuario.SelectedItem;
+
+            return usuario;
+
+
+
         }
     }
 }
