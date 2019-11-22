@@ -31,9 +31,9 @@ namespace ClasesMarcacion
         public static List<Cargo> ObtenerCargos()
         {
 
-
             Cargo cargo;
             listaCargos.Clear();
+
             using (SqlConnection con = new SqlConnection(SqlServer.CADENA_CONEXION))
 
             {

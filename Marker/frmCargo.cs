@@ -180,9 +180,10 @@ namespace Marker
         private void frmCargo_Load_1(object sender, EventArgs e)
         {
             ActualizarListaCargos();
+            lstCargo.DataSource = Cargo.ObtenerCargos();
 
             //lstCargo.DataSource = Cargo.ObtenerCargo();
-      BloquearFormulario();
+            BloquearFormulario();
         }
 
         private void lstCargo_Click_1(object sender, EventArgs e)
