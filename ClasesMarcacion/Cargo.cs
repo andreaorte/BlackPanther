@@ -30,10 +30,36 @@ namespace ClasesMarcacion
 
         public static List<Cargo> ObtenerCargos()
         {
- 
 
-            return listaCargos;
+
+            Cargo cargo;
+            listaCargos.Clear();
+            using (SqlConnection con = new SqlConnection(SqlServer.CADENA_CONEXION))
+
+            {
+                con.Open();
+                string textoCMD = "Select * from Cargo";
+
+                SqlCommand cmd = new SqlCommand(textoCMD, con);
+
+                SqlDataReader elLectorDeDatos = cmd.ExecuteReader();
+
+                while (elLectorDeDatos.Read())
+                {
+                    cargo = new Cargo();
+                    cargo.idCargo = elLectorDeDatos.GetInt32(0);
+                    cargo.descripcion = elLectorDeDatos.GetString(1);
+
+
+                    listaCargos.Add(cargo);
+                }
+
+                return listaCargos;
+
+            }
+
         }
+
 
         public static void AgregarCargo(Cargo c)
         {

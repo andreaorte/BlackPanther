@@ -138,10 +138,13 @@
             // 
             // txtIdCargo
             // 
+            this.txtIdCargo.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.txtIdCargo.Location = new System.Drawing.Point(364, 54);
             this.txtIdCargo.Name = "txtIdCargo";
+            this.txtIdCargo.ReadOnly = true;
             this.txtIdCargo.Size = new System.Drawing.Size(148, 20);
             this.txtIdCargo.TabIndex = 30;
+            this.txtIdCargo.TabStop = false;
             // 
             // frmCargo
             // 

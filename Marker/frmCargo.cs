@@ -28,6 +28,7 @@ namespace Marker
         {
             lstCargo.DataSource = null;
             lstCargo.DataSource = Cargo.ObtenerCargos();
+
         }
 
         private void BloquearFormulario()
@@ -180,8 +181,8 @@ namespace Marker
         {
             ActualizarListaCargos();
 
-            lstCargo.DataSource = Cargo.ObtenerCargo();
-            BloquearFormulario();
+            //lstCargo.DataSource = Cargo.ObtenerCargo();
+      BloquearFormulario();
         }
 
         private void lstCargo_Click_1(object sender, EventArgs e)
@@ -239,9 +240,9 @@ namespace Marker
             }
 
             LimpiarFormulario();
-            ActualizarListaCargos();
+
             BloquearFormulario();
-           
+            ActualizarListaCargos();
 
         }
 
