@@ -139,8 +139,16 @@ namespace Marker
 
         private Cargo ObtenerDatosFormulario()
         {
-            Cargo cargo = new Cargo();
-            cargo.idCargo = Convert.ToInt16(txtIdCargo.Text); 
+
+            Cargo cargo  = new Cargo();
+
+            if (!string.IsNullOrEmpty(txtIdCargo.Text))
+            {
+                cargo.idCargo = Convert.ToInt32(txtIdCargo.Text);
+            }
+
+            //Cargo cargo = new Cargo();
+            //cargo.idCargo = Convert.ToInt16(txtIdCargo.Text); 
             cargo.descripcion = txtNombreCargo.Text;
             return cargo;
 
@@ -172,6 +180,7 @@ namespace Marker
         {
             ActualizarListaCargos();
 
+            lstCargo.DataSource = Cargo.ObtenerCargo();
             BloquearFormulario();
         }
 
@@ -232,7 +241,7 @@ namespace Marker
             LimpiarFormulario();
             ActualizarListaCargos();
             BloquearFormulario();
-
+           
 
         }
 

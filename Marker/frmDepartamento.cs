@@ -110,7 +110,12 @@ namespace Marker
         private Departamento ObtenerDatosFormulario()
         {
             Departamento departamento = new Departamento();
-            departamento.Id = Convert.ToInt16(txtIdDepartamento.Text);
+
+            if (!string.IsNullOrEmpty(txtIdDepartamento.Text))
+            {
+               departamento.Id = Convert.ToInt32(txtIdDepartamento.Text);
+            }
+
             departamento.descripcion = txtNombreDepartamento.Text;
             return departamento;
 
@@ -170,8 +175,10 @@ namespace Marker
         private void frmDepartamento_Load_1(object sender, EventArgs e)
         {
             ActualizarListaDepartamentos();
+            lstDepartamento.DataSource = Departamento.ObtenerDepartamento();
 
             BloquearFormulario();
+
         }
 
         private void lstDepartamento_Click_1(object sender, EventArgs e)

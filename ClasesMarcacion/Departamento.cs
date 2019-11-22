@@ -41,11 +41,11 @@ namespace ClasesMarcacion
 
             {
                 con.Open(); //Abrimos la conex con la BD
-                string textoCmd = "insert into Departamento (NombreDepartamento) VALUES (@NombreDepartamento)";
+                string textoCmd = "insert into Departamento (Descripcion) VALUES (@Descripcion)";
                 SqlCommand cmd = new SqlCommand(textoCmd, con);
 
                 //PARAMETROS
-                SqlParameter p1 = new SqlParameter("@NombreCargo", d.descripcion);
+                SqlParameter p1 = new SqlParameter("@Descripcion", d.descripcion);
 
 
                 //Le decimos a los parametros de que tipo de datos son
@@ -86,12 +86,12 @@ namespace ClasesMarcacion
             using (SqlConnection con = new SqlConnection(SqlServer.CADENA_CONEXION))
             {
                 con.Open();
-                string textoCMD = "UPDATE Departamento SET NombreDepartamento = @nombreDepartamento where Id = @Id";
+                string textoCMD = "UPDATE Departamento SET Descripcion = @Descripcion where Id = @Id";
 
                 SqlCommand cmd = new SqlCommand(textoCMD, con);
 
                 //DEFINICION DE PARAMETROS
-                SqlParameter p1 = new SqlParameter("@nombreDepartamento", d.descripcion);
+                SqlParameter p1 = new SqlParameter("@Descripcion", d.descripcion);
                 SqlParameter p2 = new SqlParameter("@Id", d.Id);
 
 
