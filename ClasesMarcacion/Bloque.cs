@@ -9,15 +9,15 @@ namespace ClasesMarcacion
 
     public enum TipoHora
     {
-        Diurna,
-        Nocturna
+        Normal,
+        Extra,
+        Guardia
     }
     public class Bloque
     {
 
         public Usuari NombreUsuario  { get; set; }
-        public string CodigoHumano  { get; set; }
-        public TipoHora Tipo_Hora  { get; set; }
+        public TipoHora Tipo_Hora { get; set; }
         public DateTime HoraEntrada  { get; set; }
         public DateTime HoraSalida { get; set; }
         public DateTime FechaEntrada { get; set; }
@@ -35,7 +35,7 @@ namespace ClasesMarcacion
 
         public Bloque(string codigoHumano, DateTime horaentrada, DateTime horasalida, DateTime fechaEntrada, DateTime fechaSalida)
         {
-            this.CodigoHumano = codigoHumano;
+            
             this.HoraEntrada = horaentrada;
             this.HoraSalida = horasalida;
             this.FechaEntrada = fechaEntrada;

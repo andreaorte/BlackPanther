@@ -80,7 +80,7 @@ namespace Marker
         {
 
             ActualizarListaBloque();
-            cbobNombre.DataSource = Usuari.ObtenerUsuario();
+            //cbobNombre.DataSource = Usuari.ObtenerUsuario();
             cbobNombre.SelectedItem = null;
             BloquearFormulario();
         }

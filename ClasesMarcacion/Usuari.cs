@@ -16,116 +16,39 @@ namespace ClasesMarcacion
     public class Usuari
     {
         public int Id { get; set; }
+        public string NroDocumento { get; set; }
         public string Nombre { get; set; }
         public string Apellido { get; set; }
-        public string NroDocumento { get; set; }
-        public string CodigoHumano { get; set; }
-        public Departamento departamento   { get; set; }
-        public Cargo cargo  { get; set; }
-        public DateTime FechaIngreso  { get; set; }
+        public Departamento departamento { get; set; }
+        public Cargo cargo { get; set; }
         public TipoUsuario tipoUsuario { get; set; }
+        public DateTime FechaIngreso { get; set; }
 
-        public static List<Usuari> listarUsuario  = new List<Usuari>();
-
-        public Usuari() { }
+        public static List<Usuari> listarUsuario = new List<Usuari>();
 
 
-        public static void AgregarUsuario(Usuari p)
+
+        public override string ToString()
         {
-            
-            using (SqlConnection con = new SqlConnection(SqlServer.CADENA_CONEXION))
-
-            {
-                con.Open(); 
-                string textoCmd = "insert into Usuario (Nombre, Apellido, NroDocumento, CodigoHumano, departamento, cargo, FechaIngreso, tipoUsuario) VALUES (@Nombre, @Apellido, @NroDocumneto, @CodigoHumano, @departamento, @cargo, @FechaIngreso, @tipoUsuario)";
-                SqlCommand cmd = new SqlCommand(textoCmd, con);
-
-                SqlParameter p1 = new SqlParameter("@Nombre", p.Nombre);
-                SqlParameter p2 = new SqlParameter("@Apellido", p.Apellido);
-                SqlParameter p3 = new SqlParameter("@NroDocumneto", p.NroDocumento);
-                SqlParameter p4 = new SqlParameter("@CodigoHumano", p.CodigoHumano);
-                SqlParameter p5 = new SqlParameter("@departamento", p.departamento);
-                SqlParameter p6 = new SqlParameter("@cargo", p.cargo);
-                SqlParameter p7 = new SqlParameter("@FechaIngreso", p.FechaIngreso);
-                SqlParameter p8 = new SqlParameter("@tipoUsuario", p.tipoUsuario);
-
-                
-                p1.SqlDbType = SqlDbType.VarChar;
-                p2.SqlDbType = SqlDbType.VarChar;
-                p3.SqlDbType = SqlDbType.VarChar;
-                p4.SqlDbType = SqlDbType.VarChar;
-                p5.SqlDbType = SqlDbType.Int;
-                p6.SqlDbType = SqlDbType.Int;
-                p7.SqlDbType = SqlDbType.DateTime;
-                p8.SqlDbType = SqlDbType.Int;
-                
-
-                cmd.Parameters.Add(p1);
-                cmd.Parameters.Add(p2);
-                cmd.Parameters.Add(p3);
-                cmd.Parameters.Add(p4);
-                cmd.Parameters.Add(p5);
-                cmd.Parameters.Add(p6);
-                cmd.Parameters.Add(p7);
-                cmd.Parameters.Add(p8);
-
-                cmd.ExecuteNonQuery();
-
-            }
-
-
-
+            return this.Nombre + " " + Apellido;
         }
-        public static void EditarUsuario(int index, Usuari p)
+
+
+        public static void AgregarUsuario(Usuari u)
         {
-            
             using (SqlConnection con = new SqlConnection(SqlServer.CADENA_CONEXION))
+
             {
                 con.Open();
-                string textoCMD = "UPDATE Usuario SET Nombre = @Nombre, Apellido = @Apellido, NroDocumento = @NroDocumneto, Departamento = @departamento, Cargo = @cargo, FechaIngreso = @FechaIngreso, tipoUsuario = @tipoUsuario where Id = @Id";
-
-                SqlCommand cmd = new SqlCommand(textoCMD, con);
-
-                SqlParameter p1 = new SqlParameter("@Nombre", p.Nombre);
-                SqlParameter p2 = new SqlParameter("@Apellido", p.Apellido);
-                SqlParameter p3 = new SqlParameter("@NroDocumneto", p.NroDocumento);
-               
-                SqlParameter p4 = new SqlParameter("@departamento", p.departamento);
-                SqlParameter p5 = new SqlParameter("@cargo", p.cargo);
-                SqlParameter p6 = new SqlParameter("@FechaIngreso", p.FechaIngreso);
-                SqlParameter p7 = new SqlParameter("@tipoUsuario", p.tipoUsuario);
-                SqlParameter p8 = new SqlParameter("@Id", p.Id);
-
-                p1.SqlDbType = SqlDbType.VarChar;
-                p2.SqlDbType = SqlDbType.VarChar;
-                p3.SqlDbType = SqlDbType.VarChar;
-               
-                p4.SqlDbType = SqlDbType.Int;
-                p5.SqlDbType = SqlDbType.Int;
-                p6.SqlDbType = SqlDbType.DateTime;
-                p7.SqlDbType = SqlDbType.Int;
-                p8.SqlDbType = SqlDbType.Int;
-
-
-
-                cmd.Parameters.Add(p1);
-                cmd.Parameters.Add(p2);
-                cmd.Parameters.Add(p3);
-                cmd.Parameters.Add(p4);
-                cmd.Parameters.Add(p5);
-                cmd.Parameters.Add(p6);
-                cmd.Parameters.Add(p7);
-                cmd.Parameters.Add(p8);
-             
-
+                string textoCmd = "INSERT INTO Usuario (NroDocumento, Nombre, Apellido, Departamento, Cargo, tipoUsuario, FechaIngreso)VALUES (@NroDocumento, @Nombre, @Apellido, @Departamento, @Cargo, @tipoUsuario, @FechaIngreso)";
+                SqlCommand cmd = new SqlCommand(textoCmd, con);
+                cmd = u.ObtenerParametros(cmd);
                 cmd.ExecuteNonQuery();
             }
         }
 
-
-        public static void EliminarUsuario(Usuari p)
+        public static void EliminarUsuario(Usuari u)
         {
-           
             using (SqlConnection con = new SqlConnection(SqlServer.CADENA_CONEXION))
 
             {
@@ -133,56 +56,112 @@ namespace ClasesMarcacion
                 string SENTENCIA_SQL = "delete from Usuario where Id = @Id";
 
                 SqlCommand cmd = new SqlCommand(SENTENCIA_SQL, con);
-                SqlParameter p9 = new SqlParameter("@Id", p.Id);
-                p9.SqlDbType = SqlDbType.Int;
-                cmd.Parameters.Add(p9);
+                SqlParameter p1 = new SqlParameter("@Id", u.Id);
+                p1.SqlDbType = SqlDbType.Int;
+                cmd.Parameters.Add(p1);
+
+                cmd.ExecuteNonQuery();
+                con.Close();
+            }
+        }
+
+
+        public static void EditarUsuario(int index, Usuari u)
+        {
+
+            using (SqlConnection con = new SqlConnection(SqlServer.CADENA_CONEXION))
+            {
+                con.Open();
+                string textoCMD = "UPDATE Usuario SET NroDocumento=@NroDocumento, Nombre =@Nombre, Apellido=@Apellido, Departamento=@Departamento, Cargo=@Cargo,tipoUsuario=@tipoUsuario, FechaIngreso=@FechaIngreso where Id = @Id";
+
+                SqlCommand cmd = new SqlCommand(textoCMD, con);
+                cmd = u.ObtenerParametros(cmd, true);
 
                 cmd.ExecuteNonQuery();
             }
         }
 
-        public static List<Usuari> ObtenerUsuario()
+
+        public static List<Usuari> ObtenerUsuarios()
         {
+            Usuari u;
 
-
-            Usuari usuario;
             listarUsuario.Clear();
-            using (SqlConnection con = new SqlConnection(SqlServer.CADENA_CONEXION))
 
+            using (SqlConnection con = new SqlConnection(SqlServer.CADENA_CONEXION))
             {
                 con.Open();
-                string textoCMD = "Select * from Usuario";
-
+                string textoCMD = "select * from Usuario";
                 SqlCommand cmd = new SqlCommand(textoCMD, con);
 
                 SqlDataReader elLectorDeDatos = cmd.ExecuteReader();
 
-               
-
                 while (elLectorDeDatos.Read())
                 {
-                    usuario = new Usuari();
-                    usuario.Id = elLectorDeDatos.GetInt32(0);
-                    usuario.Nombre = elLectorDeDatos.GetString(1);
-                    usuario.Apellido = elLectorDeDatos.GetString(2);
-                    usuario.NroDocumento = elLectorDeDatos.GetString(3);
-                    usuario.departamento = Departamento.ObtenerDpto(elLectorDeDatos.GetInt32(4));
-                    usuario.cargo = Cargo.ObtenerCar(elLectorDeDatos.GetInt32(5));
-                    usuario.FechaIngreso = elLectorDeDatos.GetDateTime(6);
-                    usuario.tipoUsuario = (TipoUsuario)elLectorDeDatos.GetInt32(7);
+                    u = new Usuari();
+                    u.Id = elLectorDeDatos.GetInt32(0);
+                    u.NroDocumento = elLectorDeDatos.GetString(1);
+                    u.Nombre = elLectorDeDatos.GetString(2);
+                    u.Apellido = elLectorDeDatos.GetString(3);
+                    u.departamento = Departamento.ObtenerDpto(elLectorDeDatos.GetInt32(4));
+                    u.cargo = Cargo.ObtenerCar(elLectorDeDatos.GetInt32(5));
+                    u.tipoUsuario = (TipoUsuario)elLectorDeDatos.GetInt32(6);
+                    u.FechaIngreso = elLectorDeDatos.GetDateTime(7);
 
-                    listarUsuario.Add(usuario);
+
+
+
+                    listarUsuario.Add(u);
+
                 }
-
-                return listarUsuario;
-
             }
 
+            return listarUsuario;
         }
 
-        public override string ToString()
+
+        private SqlCommand ObtenerParametros(SqlCommand cmd, Boolean id = false)
         {
-            return this.Nombre + " " + Apellido;
+            SqlParameter p1 = new SqlParameter("@NroDocumento", this.NroDocumento);
+            SqlParameter p2 = new SqlParameter("@Nombre", this.Nombre);
+            SqlParameter p3 = new SqlParameter("@Apellido", this.Apellido);
+            SqlParameter p4 = new SqlParameter("@Departamento", this.departamento.Id);
+            SqlParameter p5 = new SqlParameter("@Cargo", this.cargo.idCargo);
+            SqlParameter p6 = new SqlParameter("@tipoUsuario", this.tipoUsuario);
+            SqlParameter p7 = new SqlParameter("@FechaIngreso", this.FechaIngreso);
+
+
+            p1.SqlDbType = SqlDbType.VarChar;
+            p2.SqlDbType = SqlDbType.VarChar;
+            p3.SqlDbType = SqlDbType.VarChar;
+            p4.SqlDbType = SqlDbType.Int;
+            p5.SqlDbType = SqlDbType.Int;
+            p6.SqlDbType = SqlDbType.Int;
+            p7.SqlDbType = SqlDbType.DateTime;
+
+
+            cmd.Parameters.Add(p1);
+            cmd.Parameters.Add(p2);
+            cmd.Parameters.Add(p3);
+            cmd.Parameters.Add(p4);
+            cmd.Parameters.Add(p5);
+            cmd.Parameters.Add(p6);
+            cmd.Parameters.Add(p7);
+
+
+            if (id == true)
+            {
+                cmd = ObtenerParametrosId(cmd);
+            }
+            return cmd;
+        }
+
+        private SqlCommand ObtenerParametrosId(SqlCommand cmd)
+        {
+            SqlParameter p9 = new SqlParameter("@Id", this.Id);
+            p9.SqlDbType = SqlDbType.Int;
+            cmd.Parameters.Add(p9);
+            return cmd;
         }
     }
 }

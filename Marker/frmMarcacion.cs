@@ -100,7 +100,7 @@ namespace Marker
         {
             lblHoraActual.Text = DateTime.Now.ToLongTimeString();
             ActualizarListaMarcacion();
-            cboEmpleado.DataSource = Usuari.ObtenerUsuario();
+            //cboEmpleado.DataSource = Usuari.ObtenerUsuario();
             cboEmpleado.SelectedItem = null;
             txtDepartamento.Enabled = false;
             txtCargo.Enabled = false;

@@ -39,7 +39,8 @@ namespace Marker
         }
         private void LimpiarFormulario()
         {
-       
+
+            txtId.Text = "";
             txtNombre.Text = "";
             txtApellido.Text = "";
             txtNroDocumento.Text = "";
@@ -53,11 +54,10 @@ namespace Marker
         {
 
             ActualizarListaUser();
-
             cboTipoUsuario.DataSource = Enum.GetValues(typeof(TipoUsuario));
-            cboDepartamento.DataSource = Departamento.ObtenerDepartamentos();
+            cboDepartamento.DataSource = Departamento.ObtenerDepartamento();
             cboCargo.DataSource = Cargo.ObtenerCargos();
-            cboCargo.SelectedItem = null;
+            cboCargo.SelectedItem = 1;
             cboDepartamento.SelectedItem = null;
             cboTipoUsuario.SelectedItem = null;
             BloquearFormulario();
@@ -108,7 +108,7 @@ namespace Marker
         private void ActualizarListaUser()
         {
             lstUsuario.DataSource = null;
-            lstUsuario.DataSource = Usuari.ObtenerUsuario();
+            lstUsuario.DataSource = Usuari.ObtenerUsuarios();
         }
 
 
@@ -197,13 +197,14 @@ namespace Marker
             Usuari usuario = (Usuari)lstUsuario.SelectedItem;
 
             txtId.Text = Convert.ToString(usuario.Id);
+            txtNroDocumento.Text = usuario.NroDocumento;
             txtNombre.Text = usuario.Nombre;
             txtApellido.Text = usuario.Apellido;
-            txtNroDocumento.Text = usuario.NroDocumento;
             cboDepartamento.SelectedItem = usuario.departamento;
             cboCargo.SelectedItem = usuario.cargo;
-            dtpFechaIngreso.Value = usuario.FechaIngreso;
             cboTipoUsuario.SelectedItem = usuario.tipoUsuario;
+            dtpFechaIngreso.Value = usuario.FechaIngreso;
+            
 
         }
 
@@ -241,7 +242,7 @@ namespace Marker
 
         private void btnAgregar_Click_1(object sender, EventArgs e)
         {
-            modo = "AGREGAR";
+            modo = "I";
             LimpiarFormulario();
             DesbloquearFormulario();
             txtNroDocumento.Focus();
@@ -315,7 +316,7 @@ namespace Marker
         private void ActualizarListaUsuario()
         {
             lstUsuario.DataSource = null;
-            lstUsuario.DataSource = Usuari.ObtenerUsuario();
+            lstUsuario.DataSource = Usuari.ObtenerUsuarios();
         }
 
         private Usuari ObtenerUsuarioFormulario()
@@ -337,6 +338,11 @@ namespace Marker
             return usuario;
 
 
+
+        }
+
+        private void lblTipoUsuario_Click(object sender, EventArgs e)
+        {
 
         }
     }

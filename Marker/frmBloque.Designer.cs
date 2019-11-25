@@ -43,6 +43,8 @@
             this.lblFin = new System.Windows.Forms.Label();
             this.dtpFechaEntrada = new System.Windows.Forms.DateTimePicker();
             this.dtpFechaSalida = new System.Windows.Forms.DateTimePicker();
+            this.lblTipoHora = new System.Windows.Forms.Label();
+            this.cboTipoHora = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // lstBloque
@@ -180,11 +182,30 @@
             this.dtpFechaSalida.Size = new System.Drawing.Size(191, 20);
             this.dtpFechaSalida.TabIndex = 77;
             // 
+            // lblTipoHora
+            // 
+            this.lblTipoHora.AutoSize = true;
+            this.lblTipoHora.Location = new System.Drawing.Point(294, 68);
+            this.lblTipoHora.Name = "lblTipoHora";
+            this.lblTipoHora.Size = new System.Drawing.Size(70, 13);
+            this.lblTipoHora.TabIndex = 78;
+            this.lblTipoHora.Text = "Tipo de hora:";
+            // 
+            // cboTipoHora
+            // 
+            this.cboTipoHora.FormattingEnabled = true;
+            this.cboTipoHora.Location = new System.Drawing.Point(386, 65);
+            this.cboTipoHora.Name = "cboTipoHora";
+            this.cboTipoHora.Size = new System.Drawing.Size(191, 21);
+            this.cboTipoHora.TabIndex = 79;
+            // 
             // frmBloque
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(798, 500);
+            this.Controls.Add(this.cboTipoHora);
+            this.Controls.Add(this.lblTipoHora);
             this.Controls.Add(this.dtpFechaSalida);
             this.Controls.Add(this.dtpFechaEntrada);
             this.Controls.Add(this.lblFin);
@@ -225,5 +246,7 @@
         private System.Windows.Forms.Label lblFin;
         private System.Windows.Forms.DateTimePicker dtpFechaEntrada;
         private System.Windows.Forms.DateTimePicker dtpFechaSalida;
+        private System.Windows.Forms.Label lblTipoHora;
+        private System.Windows.Forms.ComboBox cboTipoHora;
     }
 }

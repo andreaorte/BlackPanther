@@ -78,6 +78,7 @@
             this.lblTipoUsuario.Size = new System.Drawing.Size(85, 13);
             this.lblTipoUsuario.TabIndex = 87;
             this.lblTipoUsuario.Text = "Tipo de Usuario:";
+            this.lblTipoUsuario.Click += new System.EventHandler(this.lblTipoUsuario_Click);
             // 
             // cboTipoUsuario
             // 
