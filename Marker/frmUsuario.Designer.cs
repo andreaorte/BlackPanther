@@ -48,9 +48,7 @@
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.lblNroDocumento = new System.Windows.Forms.Label();
-            this.lblCodigoHumano = new System.Windows.Forms.Label();
             this.txtNroDocumento = new System.Windows.Forms.TextBox();
-            this.txtCodigoHumano = new System.Windows.Forms.TextBox();
             this.txtId = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
@@ -58,7 +56,7 @@
             // dtpFechaIngreso
             // 
             this.dtpFechaIngreso.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFechaIngreso.Location = new System.Drawing.Point(461, 295);
+            this.dtpFechaIngreso.Location = new System.Drawing.Point(461, 272);
             this.dtpFechaIngreso.Name = "dtpFechaIngreso";
             this.dtpFechaIngreso.Size = new System.Drawing.Size(170, 20);
             this.dtpFechaIngreso.TabIndex = 7;
@@ -66,7 +64,7 @@
             // lblFechaIngreso
             // 
             this.lblFechaIngreso.AutoSize = true;
-            this.lblFechaIngreso.Location = new System.Drawing.Point(351, 295);
+            this.lblFechaIngreso.Location = new System.Drawing.Point(351, 272);
             this.lblFechaIngreso.Name = "lblFechaIngreso";
             this.lblFechaIngreso.Size = new System.Drawing.Size(90, 13);
             this.lblFechaIngreso.TabIndex = 88;
@@ -75,7 +73,7 @@
             // lblTipoUsuario
             // 
             this.lblTipoUsuario.AutoSize = true;
-            this.lblTipoUsuario.Location = new System.Drawing.Point(351, 259);
+            this.lblTipoUsuario.Location = new System.Drawing.Point(351, 236);
             this.lblTipoUsuario.Name = "lblTipoUsuario";
             this.lblTipoUsuario.Size = new System.Drawing.Size(85, 13);
             this.lblTipoUsuario.TabIndex = 87;
@@ -85,7 +83,7 @@
             // 
             this.cboTipoUsuario.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboTipoUsuario.FormattingEnabled = true;
-            this.cboTipoUsuario.Location = new System.Drawing.Point(483, 256);
+            this.cboTipoUsuario.Location = new System.Drawing.Point(483, 233);
             this.cboTipoUsuario.Name = "cboTipoUsuario";
             this.cboTipoUsuario.Size = new System.Drawing.Size(108, 21);
             this.cboTipoUsuario.TabIndex = 6;
@@ -93,7 +91,7 @@
             // lblCargo
             // 
             this.lblCargo.AutoSize = true;
-            this.lblCargo.Location = new System.Drawing.Point(351, 223);
+            this.lblCargo.Location = new System.Drawing.Point(351, 200);
             this.lblCargo.Name = "lblCargo";
             this.lblCargo.Size = new System.Drawing.Size(38, 13);
             this.lblCargo.TabIndex = 85;
@@ -103,7 +101,7 @@
             // 
             this.cboCargo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCargo.FormattingEnabled = true;
-            this.cboCargo.Location = new System.Drawing.Point(483, 220);
+            this.cboCargo.Location = new System.Drawing.Point(483, 197);
             this.cboCargo.Name = "cboCargo";
             this.cboCargo.Size = new System.Drawing.Size(108, 21);
             this.cboCargo.TabIndex = 5;
@@ -111,7 +109,7 @@
             // lblDepartamnto
             // 
             this.lblDepartamnto.AutoSize = true;
-            this.lblDepartamnto.Location = new System.Drawing.Point(351, 190);
+            this.lblDepartamnto.Location = new System.Drawing.Point(351, 167);
             this.lblDepartamnto.Name = "lblDepartamnto";
             this.lblDepartamnto.Size = new System.Drawing.Size(77, 13);
             this.lblDepartamnto.TabIndex = 83;
@@ -121,7 +119,7 @@
             // 
             this.cboDepartamento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboDepartamento.FormattingEnabled = true;
-            this.cboDepartamento.Location = new System.Drawing.Point(483, 187);
+            this.cboDepartamento.Location = new System.Drawing.Point(483, 164);
             this.cboDepartamento.Name = "cboDepartamento";
             this.cboDepartamento.Size = new System.Drawing.Size(108, 21);
             this.cboDepartamento.TabIndex = 4;
@@ -129,7 +127,7 @@
             // lblApellido
             // 
             this.lblApellido.AutoSize = true;
-            this.lblApellido.Location = new System.Drawing.Point(351, 161);
+            this.lblApellido.Location = new System.Drawing.Point(351, 138);
             this.lblApellido.Name = "lblApellido";
             this.lblApellido.Size = new System.Drawing.Size(47, 13);
             this.lblApellido.TabIndex = 81;
@@ -138,7 +136,7 @@
             // lblNombre
             // 
             this.lblNombre.AutoSize = true;
-            this.lblNombre.Location = new System.Drawing.Point(351, 139);
+            this.lblNombre.Location = new System.Drawing.Point(351, 116);
             this.lblNombre.Name = "lblNombre";
             this.lblNombre.Size = new System.Drawing.Size(47, 13);
             this.lblNombre.TabIndex = 80;
@@ -146,14 +144,14 @@
             // 
             // txtApellido
             // 
-            this.txtApellido.Location = new System.Drawing.Point(483, 158);
+            this.txtApellido.Location = new System.Drawing.Point(483, 135);
             this.txtApellido.Name = "txtApellido";
             this.txtApellido.Size = new System.Drawing.Size(148, 20);
             this.txtApellido.TabIndex = 3;
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(483, 132);
+            this.txtNombre.Location = new System.Drawing.Point(483, 109);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(148, 20);
             this.txtNombre.TabIndex = 2;
@@ -199,7 +197,7 @@
             // 
             // btnLimpiar
             // 
-            this.btnLimpiar.Location = new System.Drawing.Point(599, 347);
+            this.btnLimpiar.Location = new System.Drawing.Point(599, 324);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(75, 23);
             this.btnLimpiar.TabIndex = 10;
@@ -209,7 +207,7 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(518, 347);
+            this.btnCancelar.Location = new System.Drawing.Point(518, 324);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 9;
@@ -219,7 +217,7 @@
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(437, 347);
+            this.btnGuardar.Location = new System.Drawing.Point(437, 324);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(75, 23);
             this.btnGuardar.TabIndex = 8;
@@ -230,34 +228,18 @@
             // lblNroDocumento
             // 
             this.lblNroDocumento.AutoSize = true;
-            this.lblNroDocumento.Location = new System.Drawing.Point(351, 109);
+            this.lblNroDocumento.Location = new System.Drawing.Point(351, 86);
             this.lblNroDocumento.Name = "lblNroDocumento";
             this.lblNroDocumento.Size = new System.Drawing.Size(98, 13);
             this.lblNroDocumento.TabIndex = 70;
             this.lblNroDocumento.Text = "Nro de documento:";
             // 
-            // lblCodigoHumano
-            // 
-            this.lblCodigoHumano.AutoSize = true;
-            this.lblCodigoHumano.Location = new System.Drawing.Point(351, 79);
-            this.lblCodigoHumano.Name = "lblCodigoHumano";
-            this.lblCodigoHumano.Size = new System.Drawing.Size(86, 13);
-            this.lblCodigoHumano.TabIndex = 69;
-            this.lblCodigoHumano.Text = "Código Humano:";
-            // 
             // txtNroDocumento
             // 
-            this.txtNroDocumento.Location = new System.Drawing.Point(483, 102);
+            this.txtNroDocumento.Location = new System.Drawing.Point(483, 79);
             this.txtNroDocumento.Name = "txtNroDocumento";
             this.txtNroDocumento.Size = new System.Drawing.Size(148, 20);
             this.txtNroDocumento.TabIndex = 1;
-            // 
-            // txtCodigoHumano
-            // 
-            this.txtCodigoHumano.Location = new System.Drawing.Point(483, 72);
-            this.txtCodigoHumano.Name = "txtCodigoHumano";
-            this.txtCodigoHumano.Size = new System.Drawing.Size(148, 20);
-            this.txtCodigoHumano.TabIndex = 0;
             // 
             // txtId
             // 
@@ -303,9 +285,7 @@
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.lblNroDocumento);
-            this.Controls.Add(this.lblCodigoHumano);
             this.Controls.Add(this.txtNroDocumento);
-            this.Controls.Add(this.txtCodigoHumano);
             this.Name = "frmUsuario";
             this.Text = "frmUsuario";
             this.Load += new System.EventHandler(this.frmUsuario_Load);
@@ -336,9 +316,7 @@
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Label lblNroDocumento;
-        private System.Windows.Forms.Label lblCodigoHumano;
         private System.Windows.Forms.TextBox txtNroDocumento;
-        private System.Windows.Forms.TextBox txtCodigoHumano;
         private System.Windows.Forms.TextBox txtId;
         private System.Windows.Forms.Label label1;
     }

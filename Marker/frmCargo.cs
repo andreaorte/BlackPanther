@@ -241,7 +241,6 @@ namespace Marker
             }
 
             LimpiarFormulario();
-
             BloquearFormulario();
             ActualizarListaCargos();
 

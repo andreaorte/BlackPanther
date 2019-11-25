@@ -70,7 +70,7 @@ namespace Marker
         private void ActualizarListaDepartamentos()
         {
             lstDepartamento.DataSource = null;
-            lstDepartamento.DataSource = Departamento.ObtenerDepartamentos();
+            lstDepartamento.DataSource = Departamento.ObtenerDepartamento();
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -227,8 +227,9 @@ namespace Marker
 
             }
             LimpiarFormulario();
+            BloquearFormulario();           
             ActualizarListaDepartamentos();
-            BloquearFormulario();
+            
         }
 
         private void btnEditar_Click_1(object sender, EventArgs e)

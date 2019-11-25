@@ -82,29 +82,29 @@ namespace ClasesMarcacion
             using (SqlConnection con = new SqlConnection(SqlServer.CADENA_CONEXION))
             {
                 con.Open();
-                string textoCMD = "UPDATE Usuario SET Nombre = @Nombre, Apellido = @Apellido, NroDocumento = @NroDocumneto, CodigoHumano = @CodigoHumano, departamento = @departamento, cargo = @cargo, FechaIngreso = @FechaIngreso, tipoUsuario = @tipoUsuario where Id = @Id";
+                string textoCMD = "UPDATE Usuario SET Nombre = @Nombre, Apellido = @Apellido, NroDocumento = @NroDocumneto, Departamento = @departamento, Cargo = @cargo, FechaIngreso = @FechaIngreso, tipoUsuario = @tipoUsuario where Id = @Id";
 
                 SqlCommand cmd = new SqlCommand(textoCMD, con);
 
                 SqlParameter p1 = new SqlParameter("@Nombre", p.Nombre);
                 SqlParameter p2 = new SqlParameter("@Apellido", p.Apellido);
                 SqlParameter p3 = new SqlParameter("@NroDocumneto", p.NroDocumento);
-                SqlParameter p4 = new SqlParameter("@CodigoHumano", p.CodigoHumano);
-                SqlParameter p5 = new SqlParameter("@departamento", p.departamento);
-                SqlParameter p6 = new SqlParameter("@cargo", p.cargo);
-                SqlParameter p7 = new SqlParameter("@FechaIngreso", p.FechaIngreso);
-                SqlParameter p8 = new SqlParameter("@tipoUsuario", p.tipoUsuario);
-                SqlParameter p9 = new SqlParameter("@Id", p.Id);
+               
+                SqlParameter p4 = new SqlParameter("@departamento", p.departamento);
+                SqlParameter p5 = new SqlParameter("@cargo", p.cargo);
+                SqlParameter p6 = new SqlParameter("@FechaIngreso", p.FechaIngreso);
+                SqlParameter p7 = new SqlParameter("@tipoUsuario", p.tipoUsuario);
+                SqlParameter p8 = new SqlParameter("@Id", p.Id);
 
                 p1.SqlDbType = SqlDbType.VarChar;
                 p2.SqlDbType = SqlDbType.VarChar;
                 p3.SqlDbType = SqlDbType.VarChar;
-                p4.SqlDbType = SqlDbType.VarChar;
+               
+                p4.SqlDbType = SqlDbType.Int;
                 p5.SqlDbType = SqlDbType.Int;
-                p6.SqlDbType = SqlDbType.Int;
-                p7.SqlDbType = SqlDbType.DateTime;
+                p6.SqlDbType = SqlDbType.DateTime;
+                p7.SqlDbType = SqlDbType.Int;
                 p8.SqlDbType = SqlDbType.Int;
-                p9.SqlDbType = SqlDbType.Int;
 
 
 
@@ -116,7 +116,7 @@ namespace ClasesMarcacion
                 cmd.Parameters.Add(p6);
                 cmd.Parameters.Add(p7);
                 cmd.Parameters.Add(p8);
-                cmd.Parameters.Add(p9);
+             
 
                 cmd.ExecuteNonQuery();
             }
@@ -166,11 +166,10 @@ namespace ClasesMarcacion
                     usuario.Nombre = elLectorDeDatos.GetString(1);
                     usuario.Apellido = elLectorDeDatos.GetString(2);
                     usuario.NroDocumento = elLectorDeDatos.GetString(3);
-                    usuario.CodigoHumano = elLectorDeDatos.GetString(4);
-                    usuario.departamento = Departamento.ObtenerDpto(elLectorDeDatos.GetInt32(6));
-                    usuario.cargo = Cargo.ObtenerCar(elLectorDeDatos.GetInt32(6));
-                    usuario.FechaIngreso = elLectorDeDatos.GetDateTime(3);
-                    usuario.tipoUsuario = (TipoUsuario)elLectorDeDatos.GetInt32(4);
+                    usuario.departamento = Departamento.ObtenerDpto(elLectorDeDatos.GetInt32(4));
+                    usuario.cargo = Cargo.ObtenerCar(elLectorDeDatos.GetInt32(5));
+                    usuario.FechaIngreso = elLectorDeDatos.GetDateTime(6);
+                    usuario.tipoUsuario = (TipoUsuario)elLectorDeDatos.GetInt32(7);
 
                     listarUsuario.Add(usuario);
                 }

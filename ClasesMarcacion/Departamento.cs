@@ -54,8 +54,6 @@ namespace ClasesMarcacion
 
                 //Agragamos los parametros al command
                 cmd.Parameters.Add(p1);
-
-
                 cmd.ExecuteNonQuery();
 
             }

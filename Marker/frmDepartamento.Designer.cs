@@ -140,6 +140,7 @@
             // 
             this.txtIdDepartamento.Location = new System.Drawing.Point(377, 63);
             this.txtIdDepartamento.Name = "txtIdDepartamento";
+            this.txtIdDepartamento.ReadOnly = true;
             this.txtIdDepartamento.Size = new System.Drawing.Size(148, 20);
             this.txtIdDepartamento.TabIndex = 41;
             // 

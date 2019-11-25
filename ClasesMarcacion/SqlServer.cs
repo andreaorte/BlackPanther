@@ -9,7 +9,7 @@ namespace ClasesMarcacion
     public class SqlServer
     {
 
-        public static string CADENA_CONEXION = "Data Source = M205-22; Initial Catalog = BlackPanther; User Id = sa; Password = @lumno123";
+        public static string CADENA_CONEXION = "Data Source = DESKTOP-0E7A08E\\SQLEXPRESS; Initial Catalog = BlackPanther2; User Id = sa; Password = 123";
        // public static string CADENA_CONEXION = "Data Source = DESKTOP-DROPE; Initial Catalog = BlackPanther; User Id = sa; Password = @lumno123";
     }
 }
