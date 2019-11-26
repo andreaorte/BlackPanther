@@ -27,7 +27,7 @@ namespace Marker
         private void ActualizarListaCargos()
         {
             lstCargo.DataSource = null;
-            lstCargo.DataSource = Cargo.ObtenerCargos();
+            lstCargo.DataSource = Cargo.ObtenerCargo();
 
         }
 
@@ -180,7 +180,7 @@ namespace Marker
         private void frmCargo_Load_1(object sender, EventArgs e)
         {
             ActualizarListaCargos();
-            lstCargo.DataSource = Cargo.ObtenerCargos();
+            lstCargo.DataSource = Cargo.ObtenerCargo();
 
             //lstCargo.DataSource = Cargo.ObtenerCargo();
             BloquearFormulario();

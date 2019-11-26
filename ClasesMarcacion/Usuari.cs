@@ -158,9 +158,9 @@ namespace ClasesMarcacion
 
         private SqlCommand ObtenerParametrosId(SqlCommand cmd)
         {
-            SqlParameter p9 = new SqlParameter("@Id", this.Id);
-            p9.SqlDbType = SqlDbType.Int;
-            cmd.Parameters.Add(p9);
+            SqlParameter p8 = new SqlParameter("@Id", this.Id);
+            p8.SqlDbType = SqlDbType.Int;
+            cmd.Parameters.Add(p8);
             return cmd;
         }
     }

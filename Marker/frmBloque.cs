@@ -80,8 +80,10 @@ namespace Marker
         {
 
             ActualizarListaBloque();
-            //cbobNombre.DataSource = Usuari.ObtenerUsuario();
+            cboTipoHora.DataSource = Enum.GetValues(typeof(TipoHora));
+            cbobNombre.DataSource = Usuari.ObtenerUsuarios();
             cbobNombre.SelectedItem = null;
+            cboTipoHora.SelectedItem = null;
             BloquearFormulario();
         }
 
@@ -95,6 +97,10 @@ namespace Marker
             btnGuardar.Enabled = false;
             btnCancelar.Enabled = false;
             btnLimpiar.Enabled = false;
+            dtpFechaEntrada.Enabled = false;
+            dtpFechaSalida.Enabled = false;
+            cboTipoHora.Enabled = false;
+             
 
             btnAgregar.Enabled = true;
             btnEditar.Enabled = true;
@@ -105,6 +111,8 @@ namespace Marker
             cbobNombre.Enabled = true;
             dtpHoraEntrada.Enabled = true;
             dtpHoraSalida.Enabled = true;
+            dtpFechaSalida.Enabled = true;
+            dtpFechaSalida.Enabled = true;
             
             btnGuardar.Enabled = true;
             btnCancelar.Enabled = true;

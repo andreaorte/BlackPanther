@@ -42,7 +42,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(64, 128);
+            this.label1.Location = new System.Drawing.Point(134, 128);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(46, 13);
             this.label1.TabIndex = 0;
@@ -51,7 +51,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(64, 176);
+            this.label2.Location = new System.Drawing.Point(134, 176);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(64, 13);
             this.label2.TabIndex = 1;
@@ -59,7 +59,7 @@
             // 
             // btnIngresar
             // 
-            this.btnIngresar.Location = new System.Drawing.Point(83, 221);
+            this.btnIngresar.Location = new System.Drawing.Point(153, 221);
             this.btnIngresar.Name = "btnIngresar";
             this.btnIngresar.Size = new System.Drawing.Size(75, 23);
             this.btnIngresar.TabIndex = 2;
@@ -69,7 +69,7 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(183, 221);
+            this.btnCancelar.Location = new System.Drawing.Point(253, 221);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 3;
@@ -78,14 +78,14 @@
             // 
             // txtUsuario
             // 
-            this.txtUsuario.Location = new System.Drawing.Point(156, 128);
+            this.txtUsuario.Location = new System.Drawing.Point(226, 128);
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(129, 20);
             this.txtUsuario.TabIndex = 4;
             // 
             // txtContraseña
             // 
-            this.txtContraseña.Location = new System.Drawing.Point(156, 169);
+            this.txtContraseña.Location = new System.Drawing.Point(226, 169);
             this.txtContraseña.Name = "txtContraseña";
             this.txtContraseña.Size = new System.Drawing.Size(129, 20);
             this.txtContraseña.TabIndex = 5;
@@ -94,7 +94,7 @@
             // 
             this.ptbImagen.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ptbImagen.BackgroundImage")));
             this.ptbImagen.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ptbImagen.Location = new System.Drawing.Point(83, 12);
+            this.ptbImagen.Location = new System.Drawing.Point(153, 12);
             this.ptbImagen.Name = "ptbImagen";
             this.ptbImagen.Size = new System.Drawing.Size(184, 106);
             this.ptbImagen.TabIndex = 6;
@@ -106,7 +106,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.Disable;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ClientSize = new System.Drawing.Size(360, 287);
+            this.ClientSize = new System.Drawing.Size(518, 332);
             this.Controls.Add(this.ptbImagen);
             this.Controls.Add(this.txtContraseña);
             this.Controls.Add(this.txtUsuario);

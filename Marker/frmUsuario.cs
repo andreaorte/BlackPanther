@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -32,10 +33,7 @@ namespace Marker
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            modo = "AGREGAR";
-            LimpiarFormulario();
-            DesbloquearFormulario();
-            txtNroDocumento.Focus();
+            
         }
         private void LimpiarFormulario()
         {
@@ -53,15 +51,18 @@ namespace Marker
         private void frmUsuario_Load(object sender, EventArgs e)
         {
 
-            ActualizarListaUser();
             cboTipoUsuario.DataSource = Enum.GetValues(typeof(TipoUsuario));
             cboDepartamento.DataSource = Departamento.ObtenerDepartamento();
-            cboCargo.DataSource = Cargo.ObtenerCargos();
-            cboCargo.SelectedItem = 1;
             cboDepartamento.SelectedItem = null;
-            cboTipoUsuario.SelectedItem = null;
+            cboCargo.DataSource = Cargo.ObtenerCargo();
+            cboDepartamento.SelectedItem = null;
+            LimpiarFormulario();
             BloquearFormulario();
+            ActualizarListaUsuario();
+
         }
+
+        
 
         private void BloquearFormulario()
         {
@@ -105,115 +106,14 @@ namespace Marker
         }
 
 
-        private void ActualizarListaUser()
-        {
-            lstUsuario.DataSource = null;
-            lstUsuario.DataSource = Usuari.ObtenerUsuarios();
-        }
-
-
-        private void btnGuardar_Click(object sender, EventArgs e)
-        {
-          // var u = ObtenerUserFormulario();
-
-            {
-                if (modo == "AGREGAR")
-                {
-                    Usuari user = ObtenerUserFormulario();
-                    Usuari.AgregarUsuario(user);
-                }
-                else if (modo == "EDITAR")
-                {
-                    if (this.lstUsuario.SelectedItems.Count == 0)
-                    {
-                        MessageBox.Show("Favor seleccione una fila");
-                    }
-
-                    else
-                    {
-                        
-                        int index = lstUsuario.SelectedIndex;
-                        Usuari.listarUsuario[index] = ObtenerUserFormulario();
-                        
-                    }
-
-                }
-
-                LimpiarFormulario();
-                ActualizarListaUser();
-                BloquearFormulario();
-
-
-            }
-        }
-
-        private Usuari ObtenerUserFormulario()
-        {
-            Usuari u = new Usuari();
-  
-            u.Nombre = txtNombre.Text;
-            u.Apellido= txtApellido.Text;
-            u.NroDocumento = txtNroDocumento.Text;
-            u.FechaIngreso = dtpFechaIngreso.Value.Date;
-           u.departamento = (Departamento)cboDepartamento.SelectedItem;
-            u.cargo = (Cargo)cboCargo.SelectedItem;
-            u.tipoUsuario = (TipoUsuario)cboTipoUsuario.SelectedItem;
-
-
-            return u;
-        }
-
-        private void btnEditar_Click(object sender, EventArgs e)
-        {
-                modo = "EDITAR";
-                DesbloquearFormulario();
-                txtNroDocumento.Focus();
-            
-
-        }
-
-        private void btnEliminar_Click(object sender, EventArgs e)
-        {
-            {
-                if (lstUsuario.SelectedItems.Count > 0)
-                {
-                    Usuari user = (Usuari)lstUsuario.SelectedItem;
-                    Usuari.listarUsuario.Remove(user);
-                    ActualizarListaUser();
-                    LimpiarFormulario();
-                }
-                else
-                {
-                    MessageBox.Show("Favor seleccionar de la lista para eliminar");
-                }
-
-            }
-        }
+      
 
 
 
-        private void lstUsuario_Click(object sender, EventArgs e)
-        {
-            Usuari usuario = (Usuari)lstUsuario.SelectedItem;
+        
 
-            txtId.Text = Convert.ToString(usuario.Id);
-            txtNroDocumento.Text = usuario.NroDocumento;
-            txtNombre.Text = usuario.Nombre;
-            txtApellido.Text = usuario.Apellido;
-            cboDepartamento.SelectedItem = usuario.departamento;
-            cboCargo.SelectedItem = usuario.cargo;
-            cboTipoUsuario.SelectedItem = usuario.tipoUsuario;
-            dtpFechaIngreso.Value = usuario.FechaIngreso;
-            
 
-        }
-
-        private void btnCancelar_Click(object sender, EventArgs e)
-        {
-            modo = "CANCELAR";
-            LimpiarFormulario();
-            DesbloquearFormulario();
-        }
+        
 
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
@@ -222,22 +122,50 @@ namespace Marker
 
         private void lstUsuario_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Usuari u = (Usuari)lstUsuario.SelectedItem;
+         
 
-            if (u != null)
+
+        }
+
+        
+
+      
+
+
+
+     
+
+        
+
+        private void lblTipoUsuario_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lstUsuario_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lstUsuario_Click(object sender, EventArgs e)
+        {
+            if (lstUsuario.SelectedItem != null)
             {
-                txtNombre.Text = u.Nombre;
-                txtApellido.Text = u.Apellido;
-            
-                txtNroDocumento.Text = u.NroDocumento;
-                cboDepartamento.SelectedItem = u.departamento;
-                cboCargo.SelectedItem = u.cargo;
-                cboTipoUsuario.SelectedItem = u.tipoUsuario;
-                dtpFechaIngreso.Value = u.FechaIngreso;
+
+                Usuari usuario = (Usuari)lstUsuario.SelectedItem;
+                txtId.Text = Convert.ToString(usuario.Id);
+                txtNroDocumento.Text = usuario.NroDocumento;
+                txtNombre.Text = usuario.Nombre;
+                txtApellido.Text = usuario.Apellido;
+                cboDepartamento.SelectedItem = usuario.departamento;
+                cboCargo.SelectedItem = usuario.cargo;
+                cboTipoUsuario.SelectedItem = usuario.tipoUsuario;
+                dtpFechaIngreso.Value = usuario.FechaIngreso;
+                
+
+
 
             }
-
-
         }
 
         private void btnAgregar_Click_1(object sender, EventArgs e)
@@ -245,44 +173,9 @@ namespace Marker
             modo = "I";
             LimpiarFormulario();
             DesbloquearFormulario();
-            txtNroDocumento.Focus();
         }
 
-        private void lstUsuario_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnEditar_Click_1(object sender, EventArgs e)
-        {
-            Usuari usuario = (Usuari)lstUsuario.SelectedItem;
-            if (usuario != null)
-            {
-                modo = "E";
-                DesbloquearFormulario();
-            }
-            else
-            {
-                MessageBox.Show("Ojo, Selecciona un Item");
-            }
-        }
-
-        private void btnEliminar_Click_1(object sender, EventArgs e)
-        {
-            Usuari usuario = (Usuari)lstUsuario.SelectedItem;
-            if (usuario != null)
-            {
-                Usuari.EliminarUsuario(usuario);
-                ActualizarListaUsuario();
-                LimpiarFormulario();
-            }
-            else
-            {
-                MessageBox.Show("Favor seleccionar una fila de la lista");
-            }
-        }
-
-        private void btnGuardar_Click_1(object sender, EventArgs e)
+        private void btnGuardar_Click(object sender, EventArgs e)
         {
             if (modo == "I")
             {
@@ -297,18 +190,6 @@ namespace Marker
             }
 
             ActualizarListaUsuario();
-            LimpiarFormulario();
-            BloquearFormulario();
-
-        }
-
-        private void btnLimpiar_Click_1(object sender, EventArgs e)
-        {
-            LimpiarFormulario();
-        }
-
-        private void btnCancelar_Click_1(object sender, EventArgs e)
-        {
             LimpiarFormulario();
             BloquearFormulario();
         }
@@ -326,24 +207,57 @@ namespace Marker
             {
                 usuario.Id = Convert.ToInt32(txtId.Text);
             }
-
+            usuario.NroDocumento = txtNroDocumento.Text;
             usuario.Nombre = txtNombre.Text;
             usuario.Apellido = txtApellido.Text;
-            usuario.NroDocumento = txtNroDocumento.Text;
             usuario.departamento = (Departamento)cboDepartamento.SelectedItem;
             usuario.cargo = (Cargo)cboCargo.SelectedItem;
-            usuario.FechaIngreso = dtpFechaIngreso.Value.Date;
             usuario.tipoUsuario = (TipoUsuario)cboTipoUsuario.SelectedItem;
-
+            usuario.FechaIngreso = dtpFechaIngreso.Value.Date;
+            
+            
             return usuario;
-
-
-
         }
 
-        private void lblTipoUsuario_Click(object sender, EventArgs e)
+        private void btnCancelar_Click(object sender, EventArgs e)
         {
+            LimpiarFormulario();
+            BloquearFormulario();
+        }
 
+        private void btnLimpiar_Click_1(object sender, EventArgs e)
+        {
+            LimpiarFormulario();
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            Usuari usuario = (Usuari)lstUsuario.SelectedItem;
+            if (usuario != null)
+            {
+                modo = "E";
+                DesbloquearFormulario();
+            }
+            else
+            {
+                MessageBox.Show("Ojo, Selecciona un Item");
+            }
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            Usuari usuario = (Usuari)lstUsuario.SelectedItem;
+            if (usuario != null)
+            {
+                Usuari.EliminarUsuario(usuario);
+                ActualizarListaUsuario();
+               
+                LimpiarFormulario();
+            }
+            else
+            {
+                MessageBox.Show("Favor seleccionar una fila de la lista");
+            }
         }
     }
 }

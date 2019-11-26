@@ -14,14 +14,8 @@ namespace ClasesMarcacion
         public String descripcion { get; set; }
 
         public static List<Departamento> listaDepartamento = new List<Departamento>();
-        public Departamento() { }
-        public Departamento(int Id, string descripcion)
-        {
-
-            this.Id = Id;
-            this.descripcion = descripcion;
-
-        }
+   
+     
 
         public override string ToString()
         {

@@ -17,15 +17,14 @@ namespace ClasesMarcacion
     {
 
         public Usuari NombreUsuario  { get; set; }
-        public TipoHora Tipo_Hora { get; set; }
         public DateTime HoraEntrada  { get; set; }
         public DateTime HoraSalida { get; set; }
         public DateTime FechaEntrada { get; set; }
         public DateTime FechaSalida { get; set; }
+        public TipoHora Tipo_Hora { get; set; }
 
 
         public static List<Bloque> listaBloque = new List<Bloque>();
-        //Metodo para Obtener Proveedores
         public static List<Bloque> ObtenerBloque()
         {
             return listaBloque;
@@ -43,8 +42,6 @@ namespace ClasesMarcacion
 
         }
 
-
-        //Metodo para Agregar Proveedores
 
         public static void AgregarBloque(Bloque b)
         {
