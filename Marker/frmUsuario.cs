@@ -39,13 +39,17 @@ namespace Marker
         {
 
             txtId.Text = "";
-            txtNombre.Text = "";
-            txtApellido.Text = "";
             txtNroDocumento.Text = "";
+            txtNombre.Text = "";
+            txtApellido.Text = "";            
             cboDepartamento.SelectedItem = null;
             cboCargo.SelectedItem = null;
             cboTipoUsuario.SelectedItem = null;
             dtpFechaIngreso.Value = DateTime.Now;
+            txtUsuario.Text = "";
+            txtPassword.Text = "";
+            txtNroDocumento.Text = "";
+            txtCorreo.Text = "";
 
         }
         private void frmUsuario_Load(object sender, EventArgs e)
@@ -73,6 +77,9 @@ namespace Marker
             cboDepartamento.Enabled = false;
             cboTipoUsuario.Enabled = false;
             dtpFechaIngreso.Enabled = false;
+            txtUsuario.Enabled = false;
+            txtPassword.Enabled = false;
+            txtCorreo.Enabled = false;
 
             btnGuardar.Enabled = false;
             btnCancelar.Enabled = false;
@@ -95,6 +102,10 @@ namespace Marker
             cboDepartamento.Enabled = true;
             cboTipoUsuario.Enabled = true;
             dtpFechaIngreso.Enabled = true;
+            txtUsuario.Enabled = true;
+            txtPassword.Enabled = true;
+            txtCorreo.Enabled = true;
+            
 
             btnGuardar.Enabled = true;
             btnCancelar.Enabled = true;
@@ -161,7 +172,9 @@ namespace Marker
                 cboCargo.SelectedItem = usuario.cargo;
                 cboTipoUsuario.SelectedItem = usuario.tipoUsuario;
                 dtpFechaIngreso.Value = usuario.FechaIngreso;
-                
+                txtUsuario.Text = usuario.Usuario;
+                txtPassword.Text = usuario.Password;
+                txtCorreo.Text = usuario.Correo;
 
 
 
@@ -214,8 +227,11 @@ namespace Marker
             usuario.cargo = (Cargo)cboCargo.SelectedItem;
             usuario.tipoUsuario = (TipoUsuario)cboTipoUsuario.SelectedItem;
             usuario.FechaIngreso = dtpFechaIngreso.Value.Date;
-            
-            
+            usuario.Usuario = txtUsuario.Text;
+            usuario.Password = txtPassword.Text;
+            usuario.Correo = txtCorreo.Text;
+
+
             return usuario;
         }
 

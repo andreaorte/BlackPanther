@@ -23,6 +23,9 @@ namespace ClasesMarcacion
         public Cargo cargo { get; set; }
         public TipoUsuario tipoUsuario { get; set; }
         public DateTime FechaIngreso { get; set; }
+        public string Usuario { get; set; }
+        public string Password { get; set; }
+        public string Correo { get; set; }
 
         public static List<Usuari> listarUsuario = new List<Usuari>();
 
@@ -40,7 +43,7 @@ namespace ClasesMarcacion
 
             {
                 con.Open();
-                string textoCmd = "INSERT INTO Usuario (NroDocumento, Nombre, Apellido, Departamento, Cargo, tipoUsuario, FechaIngreso)VALUES (@NroDocumento, @Nombre, @Apellido, @Departamento, @Cargo, @tipoUsuario, @FechaIngreso)";
+                string textoCmd = "INSERT INTO Usuario (NroDocumento, Nombre, Apellido, Departamento, Cargo, tipoUsuario, FechaIngreso, Usuario, Password, Correo)VALUES (@NroDocumento, @Nombre, @Apellido, @Departamento, @Cargo, @tipoUsuario, @FechaIngreso,@Usuario, @Password, @Correo)";
                 SqlCommand cmd = new SqlCommand(textoCmd, con);
                 cmd = u.ObtenerParametros(cmd);
                 cmd.ExecuteNonQuery();
@@ -72,7 +75,7 @@ namespace ClasesMarcacion
             using (SqlConnection con = new SqlConnection(SqlServer.CADENA_CONEXION))
             {
                 con.Open();
-                string textoCMD = "UPDATE Usuario SET NroDocumento=@NroDocumento, Nombre =@Nombre, Apellido=@Apellido, Departamento=@Departamento, Cargo=@Cargo,tipoUsuario=@tipoUsuario, FechaIngreso=@FechaIngreso where Id = @Id";
+                string textoCMD = "UPDATE Usuario SET NroDocumento=@NroDocumento, Nombre =@Nombre, Apellido=@Apellido, Departamento=@Departamento, Cargo=@Cargo,tipoUsuario=@tipoUsuario, FechaIngreso=@FechaIngreso, Usuario=@Usuario, Password=@Password, Correo=@Correo where Id = @Id";
 
                 SqlCommand cmd = new SqlCommand(textoCMD, con);
                 cmd = u.ObtenerParametros(cmd, true);
@@ -107,6 +110,9 @@ namespace ClasesMarcacion
                     u.cargo = Cargo.ObtenerCar(elLectorDeDatos.GetInt32(5));
                     u.tipoUsuario = (TipoUsuario)elLectorDeDatos.GetInt32(6);
                     u.FechaIngreso = elLectorDeDatos.GetDateTime(7);
+                    u.Usuario = elLectorDeDatos.GetString(8);
+                    u.Password = elLectorDeDatos.GetString(9);
+                    u.Correo = elLectorDeDatos.GetString(10);
 
 
 
@@ -129,6 +135,10 @@ namespace ClasesMarcacion
             SqlParameter p5 = new SqlParameter("@Cargo", this.cargo.idCargo);
             SqlParameter p6 = new SqlParameter("@tipoUsuario", this.tipoUsuario);
             SqlParameter p7 = new SqlParameter("@FechaIngreso", this.FechaIngreso);
+            SqlParameter p8 = new SqlParameter("@Usuario", this.Usuario);
+            SqlParameter p9 = new SqlParameter("@Password", this.Password);
+            SqlParameter p10 = new SqlParameter("@Correo", this.Correo);
+
 
 
             p1.SqlDbType = SqlDbType.VarChar;
@@ -138,6 +148,9 @@ namespace ClasesMarcacion
             p5.SqlDbType = SqlDbType.Int;
             p6.SqlDbType = SqlDbType.Int;
             p7.SqlDbType = SqlDbType.DateTime;
+            p8.SqlDbType = SqlDbType.VarChar;
+            p9.SqlDbType = SqlDbType.VarChar;
+            p10.SqlDbType = SqlDbType.VarChar;
 
 
             cmd.Parameters.Add(p1);
@@ -147,7 +160,9 @@ namespace ClasesMarcacion
             cmd.Parameters.Add(p5);
             cmd.Parameters.Add(p6);
             cmd.Parameters.Add(p7);
-
+            cmd.Parameters.Add(p8);
+            cmd.Parameters.Add(p9);
+            cmd.Parameters.Add(p10);
 
             if (id == true)
             {
@@ -158,9 +173,9 @@ namespace ClasesMarcacion
 
         private SqlCommand ObtenerParametrosId(SqlCommand cmd)
         {
-            SqlParameter p8 = new SqlParameter("@Id", this.Id);
-            p8.SqlDbType = SqlDbType.Int;
-            cmd.Parameters.Add(p8);
+            SqlParameter p11 = new SqlParameter("@Id", this.Id);
+            p11.SqlDbType = SqlDbType.Int;
+            cmd.Parameters.Add(p11);
             return cmd;
         }
     }

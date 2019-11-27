@@ -51,6 +51,12 @@
             this.txtNroDocumento = new System.Windows.Forms.TextBox();
             this.txtId = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtCorreo = new System.Windows.Forms.TextBox();
+            this.txtPassword = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtUsuario = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // dtpFechaIngreso
@@ -59,7 +65,7 @@
             this.dtpFechaIngreso.Location = new System.Drawing.Point(461, 272);
             this.dtpFechaIngreso.Name = "dtpFechaIngreso";
             this.dtpFechaIngreso.Size = new System.Drawing.Size(170, 20);
-            this.dtpFechaIngreso.TabIndex = 7;
+            this.dtpFechaIngreso.TabIndex = 10;
             // 
             // lblFechaIngreso
             // 
@@ -87,7 +93,7 @@
             this.cboTipoUsuario.Location = new System.Drawing.Point(483, 233);
             this.cboTipoUsuario.Name = "cboTipoUsuario";
             this.cboTipoUsuario.Size = new System.Drawing.Size(108, 21);
-            this.cboTipoUsuario.TabIndex = 6;
+            this.cboTipoUsuario.TabIndex = 9;
             // 
             // lblCargo
             // 
@@ -105,7 +111,7 @@
             this.cboCargo.Location = new System.Drawing.Point(483, 197);
             this.cboCargo.Name = "cboCargo";
             this.cboCargo.Size = new System.Drawing.Size(108, 21);
-            this.cboCargo.TabIndex = 5;
+            this.cboCargo.TabIndex = 8;
             // 
             // lblDepartamnto
             // 
@@ -123,12 +129,12 @@
             this.cboDepartamento.Location = new System.Drawing.Point(483, 164);
             this.cboDepartamento.Name = "cboDepartamento";
             this.cboDepartamento.Size = new System.Drawing.Size(108, 21);
-            this.cboDepartamento.TabIndex = 4;
+            this.cboDepartamento.TabIndex = 7;
             // 
             // lblApellido
             // 
             this.lblApellido.AutoSize = true;
-            this.lblApellido.Location = new System.Drawing.Point(351, 138);
+            this.lblApellido.Location = new System.Drawing.Point(351, 136);
             this.lblApellido.Name = "lblApellido";
             this.lblApellido.Size = new System.Drawing.Size(47, 13);
             this.lblApellido.TabIndex = 81;
@@ -137,7 +143,7 @@
             // lblNombre
             // 
             this.lblNombre.AutoSize = true;
-            this.lblNombre.Location = new System.Drawing.Point(351, 116);
+            this.lblNombre.Location = new System.Drawing.Point(351, 107);
             this.lblNombre.Name = "lblNombre";
             this.lblNombre.Size = new System.Drawing.Size(47, 13);
             this.lblNombre.TabIndex = 80;
@@ -145,44 +151,44 @@
             // 
             // txtApellido
             // 
-            this.txtApellido.Location = new System.Drawing.Point(483, 135);
+            this.txtApellido.Location = new System.Drawing.Point(483, 132);
             this.txtApellido.Name = "txtApellido";
             this.txtApellido.Size = new System.Drawing.Size(148, 20);
-            this.txtApellido.TabIndex = 3;
+            this.txtApellido.TabIndex = 6;
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(483, 109);
+            this.txtNombre.Location = new System.Drawing.Point(483, 102);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(148, 20);
-            this.txtNombre.TabIndex = 2;
+            this.txtNombre.TabIndex = 5;
             // 
             // btnEliminar
             // 
-            this.btnEliminar.Location = new System.Drawing.Point(219, 385);
+            this.btnEliminar.Location = new System.Drawing.Point(189, 324);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(75, 23);
-            this.btnEliminar.TabIndex = 13;
+            this.btnEliminar.TabIndex = 2;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // btnEditar
             // 
-            this.btnEditar.Location = new System.Drawing.Point(138, 385);
+            this.btnEditar.Location = new System.Drawing.Point(108, 324);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(75, 23);
-            this.btnEditar.TabIndex = 12;
+            this.btnEditar.TabIndex = 1;
             this.btnEditar.Text = "Editar";
             this.btnEditar.UseVisualStyleBackColor = true;
             this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // btnAgregar
             // 
-            this.btnAgregar.Location = new System.Drawing.Point(57, 385);
+            this.btnAgregar.Location = new System.Drawing.Point(27, 324);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(75, 23);
-            this.btnAgregar.TabIndex = 11;
+            this.btnAgregar.TabIndex = 0;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = true;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click_1);
@@ -193,36 +199,36 @@
             this.lstUsuario.Location = new System.Drawing.Point(57, 51);
             this.lstUsuario.Name = "lstUsuario";
             this.lstUsuario.Size = new System.Drawing.Size(210, 251);
-            this.lstUsuario.TabIndex = 14;
+            this.lstUsuario.TabIndex = 17;
             this.lstUsuario.Click += new System.EventHandler(this.lstUsuario_Click);
             this.lstUsuario.SelectedIndexChanged += new System.EventHandler(this.lstUsuario_SelectedIndexChanged_1);
             // 
             // btnLimpiar
             // 
-            this.btnLimpiar.Location = new System.Drawing.Point(599, 324);
+            this.btnLimpiar.Location = new System.Drawing.Point(556, 425);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(75, 23);
-            this.btnLimpiar.TabIndex = 10;
+            this.btnLimpiar.TabIndex = 16;
             this.btnLimpiar.Text = "Limpiar";
             this.btnLimpiar.UseVisualStyleBackColor = true;
             this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click_1);
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(518, 324);
+            this.btnCancelar.Location = new System.Drawing.Point(475, 425);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
-            this.btnCancelar.TabIndex = 9;
+            this.btnCancelar.TabIndex = 15;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(437, 324);
+            this.btnGuardar.Location = new System.Drawing.Point(394, 425);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(75, 23);
-            this.btnGuardar.TabIndex = 8;
+            this.btnGuardar.TabIndex = 14;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
@@ -230,7 +236,7 @@
             // lblNroDocumento
             // 
             this.lblNroDocumento.AutoSize = true;
-            this.lblNroDocumento.Location = new System.Drawing.Point(351, 86);
+            this.lblNroDocumento.Location = new System.Drawing.Point(351, 81);
             this.lblNroDocumento.Name = "lblNroDocumento";
             this.lblNroDocumento.Size = new System.Drawing.Size(98, 13);
             this.lblNroDocumento.TabIndex = 70;
@@ -238,10 +244,10 @@
             // 
             // txtNroDocumento
             // 
-            this.txtNroDocumento.Location = new System.Drawing.Point(483, 79);
+            this.txtNroDocumento.Location = new System.Drawing.Point(483, 74);
             this.txtNroDocumento.Name = "txtNroDocumento";
             this.txtNroDocumento.Size = new System.Drawing.Size(148, 20);
-            this.txtNroDocumento.TabIndex = 1;
+            this.txtNroDocumento.TabIndex = 4;
             // 
             // txtId
             // 
@@ -249,7 +255,7 @@
             this.txtId.Name = "txtId";
             this.txtId.ReadOnly = true;
             this.txtId.Size = new System.Drawing.Size(148, 20);
-            this.txtId.TabIndex = 90;
+            this.txtId.TabIndex = 3;
             // 
             // label1
             // 
@@ -260,11 +266,65 @@
             this.label1.TabIndex = 89;
             this.label1.Text = "Id:";
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(351, 367);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(41, 13);
+            this.label2.TabIndex = 96;
+            this.label2.Text = "Correo:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(351, 339);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(56, 13);
+            this.label3.TabIndex = 95;
+            this.label3.Text = "Password:";
+            // 
+            // txtCorreo
+            // 
+            this.txtCorreo.Location = new System.Drawing.Point(483, 366);
+            this.txtCorreo.Name = "txtCorreo";
+            this.txtCorreo.Size = new System.Drawing.Size(148, 20);
+            this.txtCorreo.TabIndex = 13;
+            // 
+            // txtPassword
+            // 
+            this.txtPassword.Location = new System.Drawing.Point(483, 336);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.Size = new System.Drawing.Size(148, 20);
+            this.txtPassword.TabIndex = 12;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(351, 310);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(43, 13);
+            this.label4.TabIndex = 94;
+            this.label4.Text = "Usuario";
+            // 
+            // txtUsuario
+            // 
+            this.txtUsuario.Location = new System.Drawing.Point(483, 308);
+            this.txtUsuario.Name = "txtUsuario";
+            this.txtUsuario.Size = new System.Drawing.Size(148, 20);
+            this.txtUsuario.TabIndex = 11;
+            // 
             // frmUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(731, 459);
+            this.ClientSize = new System.Drawing.Size(744, 515);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.txtCorreo);
+            this.Controls.Add(this.txtPassword);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.txtUsuario);
             this.Controls.Add(this.txtId);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dtpFechaIngreso);
@@ -321,5 +381,11 @@
         private System.Windows.Forms.TextBox txtNroDocumento;
         private System.Windows.Forms.TextBox txtId;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txtCorreo;
+        private System.Windows.Forms.TextBox txtPassword;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox txtUsuario;
     }
 }

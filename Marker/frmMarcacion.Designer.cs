@@ -217,7 +217,7 @@
             this.Controls.Add(this.cboEmpleado);
             this.Controls.Add(this.lblEmpleado);
             this.Name = "frmMarcacion";
-            this.Text = "frmMarcacion";
+            this.Text = "Marcar Entrada y Salida";
             this.Load += new System.EventHandler(this.frmMarcacion_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
