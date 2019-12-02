@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data;
+using System.Data.SqlClient;
 
 namespace ClasesMarcacion
 {
@@ -25,27 +27,18 @@ namespace ClasesMarcacion
 
 
         public static List<Bloque> listaBloque = new List<Bloque>();
+
+
         public static List<Bloque> ObtenerBloque()
         {
-            return listaBloque;
+            return listaBloque; ;
         }
-
-        public Bloque() { }
-
-        public Bloque(string codigoHumano, DateTime horaentrada, DateTime horasalida, DateTime fechaEntrada, DateTime fechaSalida)
-        {
-            
-            this.HoraEntrada = horaentrada;
-            this.HoraSalida = horasalida;
-            this.FechaEntrada = fechaEntrada;
-            this.FechaSalida = fechaSalida;
-
-        }
-
 
         public static void AgregarBloque(Bloque b)
         {
-            listaBloque.Add(b);
+            using (SqlConnection con = new SqlConnection(SqlServer.CADENA_CONEXION))
+            {
+            }
         }
         public static void EliminarBloque(Bloque b)
         {

@@ -30,7 +30,7 @@ namespace ClasesMarcacion
 
         public static void AgregarDepartamento(Departamento d)
         {
-            //listaProveedores.Add(p);
+            
             using (SqlConnection con = new SqlConnection(SqlServer.CADENA_CONEXION))
 
             {
