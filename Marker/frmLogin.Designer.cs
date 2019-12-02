@@ -33,7 +33,6 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
             this.lineShape2 = new Microsoft.VisualBasic.PowerPacks.LineShape();
-            this.lineShape1 = new Microsoft.VisualBasic.PowerPacks.LineShape();
             this.txtUsuario = new System.Windows.Forms.TextBox();
             this.txtPass = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -41,6 +40,7 @@
             this.linkPass = new System.Windows.Forms.LinkLabel();
             this.btnCerrar = new System.Windows.Forms.PictureBox();
             this.btnMinimizar = new System.Windows.Forms.PictureBox();
+            this.lineShape1 = new Microsoft.VisualBasic.PowerPacks.LineShape();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
@@ -91,23 +91,13 @@
             this.lineShape2.Y1 = 147;
             this.lineShape2.Y2 = 147;
             // 
-            // lineShape1
-            // 
-            this.lineShape1.BorderColor = System.Drawing.Color.DimGray;
-            this.lineShape1.Enabled = false;
-            this.lineShape1.Name = "lineShape1";
-            this.lineShape1.X1 = 273;
-            this.lineShape1.X2 = 676;
-            this.lineShape1.Y1 = 100;
-            this.lineShape1.Y2 = 100;
-            // 
             // txtUsuario
             // 
             this.txtUsuario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.txtUsuario.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtUsuario.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUsuario.ForeColor = System.Drawing.Color.DimGray;
-            this.txtUsuario.Location = new System.Drawing.Point(274, 78);
+            this.txtUsuario.Location = new System.Drawing.Point(274, 72);
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(403, 20);
             this.txtUsuario.TabIndex = 1;
@@ -192,6 +182,17 @@
             this.btnMinimizar.TabStop = false;
             this.btnMinimizar.Click += new System.EventHandler(this.btnMinimizar_Click);
             // 
+            // lineShape1
+            // 
+            this.lineShape1.BorderColor = System.Drawing.Color.DimGray;
+            this.lineShape1.Enabled = false;
+            this.lineShape1.Name = "lineShape1";
+            this.lineShape1.X1 = 273;
+            this.lineShape1.X2 = 676;
+            this.lineShape1.Y1 = 106;
+            this.lineShape1.Y2 = 106;
+            this.lineShape1.Click += new System.EventHandler(this.lineShape1_Click);
+            // 
             // frmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -230,7 +231,6 @@
 
         private System.Windows.Forms.Panel panel1;
         private Microsoft.VisualBasic.PowerPacks.ShapeContainer shapeContainer1;
-        private Microsoft.VisualBasic.PowerPacks.LineShape lineShape1;
         private System.Windows.Forms.TextBox txtUsuario;
         private Microsoft.VisualBasic.PowerPacks.LineShape lineShape2;
         private System.Windows.Forms.TextBox txtPass;
@@ -240,5 +240,6 @@
         private System.Windows.Forms.PictureBox btnCerrar;
         private System.Windows.Forms.PictureBox btnMinimizar;
         private System.Windows.Forms.PictureBox pictureBox3;
+        private Microsoft.VisualBasic.PowerPacks.LineShape lineShape1;
     }
 }
