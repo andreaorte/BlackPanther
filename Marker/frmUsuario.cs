@@ -162,7 +162,7 @@ namespace Marker
         {
             if (lstUsuario.SelectedItem != null)
             {
-
+               
                 Usuari usuario = (Usuari)lstUsuario.SelectedItem;
                 txtId.Text = Convert.ToString(usuario.Id);
                 txtNroDocumento.Text = usuario.NroDocumento;
@@ -175,7 +175,7 @@ namespace Marker
                 txtUsuario.Text = usuario.Usuario;
                 txtPassword.Text = usuario.Password;
                 txtCorreo.Text = usuario.Correo;
-
+                
 
 
             }

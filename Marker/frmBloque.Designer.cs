@@ -58,6 +58,7 @@
             this.lstBloque.Name = "lstBloque";
             this.lstBloque.Size = new System.Drawing.Size(242, 368);
             this.lstBloque.TabIndex = 39;
+            this.lstBloque.Click += new System.EventHandler(this.lstBloque_Click_1);
             this.lstBloque.SelectedIndexChanged += new System.EventHandler(this.lstBloque_SelectedIndexChanged);
             // 
             // lblINombre

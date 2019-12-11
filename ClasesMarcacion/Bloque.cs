@@ -56,8 +56,8 @@ namespace ClasesMarcacion
             SqlParameter p2 = new SqlParameter("@Tipo_Hora", this.Tipo_Hora);
             SqlParameter p3 = new SqlParameter("@HoraEntrada", this.HoraEntrada);
             SqlParameter p4 = new SqlParameter("@HoraSalida", this.HoraSalida);
-            SqlParameter p5 = new SqlParameter("@Cargo", this.FechaEntrada);
-            SqlParameter p6 = new SqlParameter("@tipoUsuario", this.FechaSalida);
+            SqlParameter p5 = new SqlParameter("@FechaEntrada", this.FechaEntrada);
+            SqlParameter p6 = new SqlParameter("@FechaSalida", this.FechaSalida);
 
 
             p1.SqlDbType = SqlDbType.Int;
@@ -110,7 +110,7 @@ namespace ClasesMarcacion
             }
         }
 
-        public static void EditarBloque(Bloque b, int indice)
+        public static void EditarBloque(int index, Bloque bloque)
         {
             using (SqlConnection con = new SqlConnection(SqlServer.CADENA_CONEXION))
             {
@@ -118,7 +118,7 @@ namespace ClasesMarcacion
                 string textoCMD = "UPDATE Bloque SET Usuario=@Usuario, Tipo_Hora =@Tipo_Hora, HoraEntrada=@HoraEntrada, HoraSalida=@HoraSalida, FechaEntrada=@FechaEntrada,FechaSalida=@FechaSalida where Id = @Id";
 
                 SqlCommand cmd = new SqlCommand(textoCMD, con);
-                cmd = b.ObtenerParametros(cmd, true);
+                cmd = bloque.ObtenerParametros(cmd, true);
 
                 cmd.ExecuteNonQuery();
             }

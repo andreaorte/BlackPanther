@@ -21,49 +21,21 @@ namespace Marker
         {
             InitializeComponent();
         }
-        private void btnGuardar_Click(object sender, EventArgs e)
-        {
-            var b = ObtenerBloqueFormulario();
-
-
-            if (modo == "AGREGAR")
-            {
-                Bloque.AgregarBloque(b);
-            }
-            else if (modo == "EDITAR")
-            {
-
-                if (this.lstBloque.SelectedItems.Count == 0)
-                {
-                    MessageBox.Show("Favor seleccione una fila");
-                }
-
-                else
-                {
-                    int indice = lstBloque.SelectedIndex;
-                    Bloque.EditarBloque(b, indice);
-                    ActualizarListaBloque();
-                }
-
-
-            }
-            LimpiarFormulario();
-            ActualizarListaBloque();
-            BloquearFormulario();
-        }
+       
 
         private Bloque ObtenerBloqueFormulario()
         {
             Bloque bloque = new Bloque();
-            bloque.HoraEntrada =  dtpHoraEntrada.Value;
-            bloque.HoraSalida = dtpHoraSalida.Value;
-            bloque.FechaEntrada = dtpFechaEntrada.Value.Date;
-            bloque.FechaSalida = dtpFechaEntrada.Value.Date;
-
+            if (!string.IsNullOrEmpty(txtId.Text))
+            {
+                bloque.Id = Convert.ToInt32(txtId.Text);
+            }
             bloque.NombreUsuario = (Usuari)cbobNombre.SelectedItem;
-
-
-
+            bloque.Tipo_Hora = (TipoHora)cboTipoHora.SelectedItem;
+            bloque.HoraEntrada = dtpHoraEntrada.Value;
+            bloque.HoraSalida = dtpHoraSalida.Value;
+            bloque.FechaEntrada = dtpFechaEntrada.Value;
+            bloque.FechaSalida = dtpFechaSalida.Value;
             return bloque;
         }
 
@@ -80,12 +52,14 @@ namespace Marker
         }
         private void frmBloque_Load(object sender, EventArgs e)
         {
+            
             cboTipoHora.DataSource = Enum.GetValues(typeof(TipoHora));
             cbobNombre.DataSource = Usuari.ObtenerUsuarios();
             cbobNombre.SelectedItem = null;
             LimpiarFormulario();
             BloquearFormulario();
             ActualizarListaBloque();
+
         }
 
 
@@ -114,8 +88,9 @@ namespace Marker
             cbobNombre.Enabled = true;
             dtpHoraEntrada.Enabled = true;
             dtpHoraSalida.Enabled = true;
+            dtpFechaEntrada.Enabled = true;
             dtpFechaSalida.Enabled = true;
-            dtpFechaSalida.Enabled = true;
+            cboTipoHora.Enabled = true;
             
             btnGuardar.Enabled = true;
             btnCancelar.Enabled = true;
@@ -129,7 +104,7 @@ namespace Marker
         private void ActualizarListaBloque()
         {
             lstBloque.DataSource = null;
-            lstBloque.DataSource = Bloque.ObtenerBloque();
+            lstBloque.DataSource = Bloque.ObtenerBloques();
         }
 
         
@@ -139,33 +114,31 @@ namespace Marker
         {
 
 
-            if (this.lstBloque.SelectedItems.Count == 0)
+            Bloque bloque = (Bloque)lstBloque.SelectedItem;
+            if (bloque != null)
             {
-                MessageBox.Show("Favor seleccione una fila");
+                modo = "E";
+                DesbloquearFormulario();
             }
             else
             {
-                modo = "EDITAR";
-                DesbloquearFormulario();
-                cbobNombre.Focus();
+                MessageBox.Show("Ojo, Selecciona un Item");
             }
 
         }
         private void btnEliminar_Click(object sender, EventArgs e)
         {
+            Bloque bloque = (Bloque)lstBloque.SelectedItem;
+            if (bloque != null)
             {
-                if (lstBloque.SelectedItems.Count > 0)
-                {
-                    Bloque bloque = (Bloque)lstBloque.SelectedItem;
-                    Bloque.listaBloque.Remove(bloque);
-                    ActualizarListaBloque();
-                    LimpiarFormulario();
-                }
-                else
-                {
-                    MessageBox.Show("Favor seleccionar de la lista para eliminar");
-                }
+                Bloque.EliminarBloque(bloque);
+                ActualizarListaBloque();
 
+                LimpiarFormulario();
+            }
+            else
+            {
+                MessageBox.Show("Favor seleccionar una fila de la lista");
             }
         }
 
@@ -194,7 +167,7 @@ namespace Marker
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            modo = "CANCELAR";
+     
             LimpiarFormulario();
             BloquearFormulario();
         }
@@ -206,23 +179,21 @@ namespace Marker
 
         private void btnGuardar_Click_1(object sender, EventArgs e)
         {
+            if (modo == "I")
             {
-                if (modo == "AGREGAR")
-                {
-                    Bloque bloque = ObtenerBloqueFormulario();
-                    Bloque.AgregarBloque(bloque);
-                }
-                else if (modo == "EDITAR")
-                {
-                    int index = lstBloque.SelectedIndex;
-
-                    Bloque.listaBloque[index] = ObtenerBloqueFormulario();
-                }
-
-                ActualizarListaBloque();
-                LimpiarFormulario();
-                BloquearFormulario();
+                Bloque bloque = ObtenerBloqueFormulario();
+                Bloque.AgregarBloque(bloque);
             }
+            else if (modo == "E")
+            {
+                int index = lstBloque.SelectedIndex;
+                Bloque bloque= ObtenerBloqueFormulario();
+                Bloque.EditarBloque(index, bloque);
+            }
+
+            ActualizarListaBloque();
+            LimpiarFormulario();
+            BloquearFormulario();
 
         }
 
@@ -235,21 +206,7 @@ namespace Marker
 
         private void lstBloque_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (lstBloque.SelectedItem != null)
-            {
-
-                Bloque bloque = (Bloque)lstBloque.SelectedItem;
-                txtId.Text = Convert.ToString(bloque.Id);
-                cbobNombre.SelectedItem = bloque.NombreUsuario;
-                cboTipoHora.SelectedItem = bloque.Tipo_Hora;
-                dtpHoraEntrada.Value = bloque.HoraEntrada;
-                dtpHoraSalida.Value = bloque.HoraSalida;
-                dtpFechaEntrada.Value = bloque.FechaSalida;
-                dtpFechaSalida.Value = bloque.FechaSalida;
-
-
-
-            }
+            
 
             //Bloque bloque = (Bloque)lstBloque.SelectedItem;
 
@@ -274,7 +231,26 @@ namespace Marker
 
         }
 
-        
-     }
+        private void lstBloque_Click_1(object sender, EventArgs e)
+        {
+           
+            if (lstBloque.SelectedItem != null)
+            {
+                
+                Bloque bloque = (Bloque)lstBloque.SelectedItem;
+                txtId.Text = Convert.ToString(bloque.Id);
+                cbobNombre.SelectedItem = bloque.NombreUsuario;
+                cboTipoHora.SelectedItem = bloque.Tipo_Hora;
+                dtpHoraEntrada.Value = bloque.HoraEntrada;
+                dtpHoraSalida.Value = bloque.HoraSalida;
+                dtpFechaEntrada.Value = bloque.FechaSalida;
+                dtpFechaSalida.Value = bloque.FechaSalida;
+
+
+
+            }
+            
+        }
+    }
  }
 
