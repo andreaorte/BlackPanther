@@ -77,5 +77,11 @@ namespace Marker
         {
 
         }
+
+        private void crearUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CrearUsuario crearUsu = new CrearUsuario();
+            crearUsu.Show();
+        }
     }
 }

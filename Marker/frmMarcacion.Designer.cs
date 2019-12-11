@@ -51,7 +51,7 @@
             // lblEmpleado
             // 
             this.lblEmpleado.AutoSize = true;
-            this.lblEmpleado.Location = new System.Drawing.Point(38, 25);
+            this.lblEmpleado.Location = new System.Drawing.Point(35, 51);
             this.lblEmpleado.Name = "lblEmpleado";
             this.lblEmpleado.Size = new System.Drawing.Size(57, 13);
             this.lblEmpleado.TabIndex = 0;
@@ -61,7 +61,7 @@
             // 
             this.cboEmpleado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboEmpleado.FormattingEnabled = true;
-            this.cboEmpleado.Location = new System.Drawing.Point(138, 17);
+            this.cboEmpleado.Location = new System.Drawing.Point(135, 43);
             this.cboEmpleado.Name = "cboEmpleado";
             this.cboEmpleado.Size = new System.Drawing.Size(247, 21);
             this.cboEmpleado.TabIndex = 1;
@@ -70,7 +70,7 @@
             // lblMarcacionEntrada
             // 
             this.lblMarcacionEntrada.AutoSize = true;
-            this.lblMarcacionEntrada.Location = new System.Drawing.Point(38, 104);
+            this.lblMarcacionEntrada.Location = new System.Drawing.Point(35, 130);
             this.lblMarcacionEntrada.Name = "lblMarcacionEntrada";
             this.lblMarcacionEntrada.Size = new System.Drawing.Size(99, 13);
             this.lblMarcacionEntrada.TabIndex = 2;
@@ -80,7 +80,7 @@
             // lblMarcacionSalida
             // 
             this.lblMarcacionSalida.AutoSize = true;
-            this.lblMarcacionSalida.Location = new System.Drawing.Point(38, 129);
+            this.lblMarcacionSalida.Location = new System.Drawing.Point(35, 155);
             this.lblMarcacionSalida.Name = "lblMarcacionSalida";
             this.lblMarcacionSalida.Size = new System.Drawing.Size(95, 13);
             this.lblMarcacionSalida.TabIndex = 3;
@@ -88,7 +88,7 @@
             // 
             // btnMarcarEntrada
             // 
-            this.btnMarcarEntrada.Location = new System.Drawing.Point(440, 274);
+            this.btnMarcarEntrada.Location = new System.Drawing.Point(437, 300);
             this.btnMarcarEntrada.Name = "btnMarcarEntrada";
             this.btnMarcarEntrada.Size = new System.Drawing.Size(114, 23);
             this.btnMarcarEntrada.TabIndex = 4;
@@ -98,7 +98,7 @@
             // 
             // btnMarcarSalida
             // 
-            this.btnMarcarSalida.Location = new System.Drawing.Point(587, 274);
+            this.btnMarcarSalida.Location = new System.Drawing.Point(584, 300);
             this.btnMarcarSalida.Name = "btnMarcarSalida";
             this.btnMarcarSalida.Size = new System.Drawing.Size(114, 23);
             this.btnMarcarSalida.TabIndex = 5;
@@ -109,7 +109,7 @@
             // lblDpto
             // 
             this.lblDpto.AutoSize = true;
-            this.lblDpto.Location = new System.Drawing.Point(38, 53);
+            this.lblDpto.Location = new System.Drawing.Point(35, 79);
             this.lblDpto.Name = "lblDpto";
             this.lblDpto.Size = new System.Drawing.Size(77, 13);
             this.lblDpto.TabIndex = 6;
@@ -118,7 +118,7 @@
             // lblCargo
             // 
             this.lblCargo.AutoSize = true;
-            this.lblCargo.Location = new System.Drawing.Point(38, 80);
+            this.lblCargo.Location = new System.Drawing.Point(35, 106);
             this.lblCargo.Name = "lblCargo";
             this.lblCargo.Size = new System.Drawing.Size(38, 13);
             this.lblCargo.TabIndex = 7;
@@ -127,7 +127,7 @@
             // lstMarcacion
             // 
             this.lstMarcacion.FormattingEnabled = true;
-            this.lstMarcacion.Location = new System.Drawing.Point(422, 15);
+            this.lstMarcacion.Location = new System.Drawing.Point(419, 41);
             this.lstMarcacion.Name = "lstMarcacion";
             this.lstMarcacion.Size = new System.Drawing.Size(295, 212);
             this.lstMarcacion.TabIndex = 8;
@@ -137,7 +137,7 @@
             // lblHorasTrabajadas
             // 
             this.lblHorasTrabajadas.AutoSize = true;
-            this.lblHorasTrabajadas.Location = new System.Drawing.Point(38, 158);
+            this.lblHorasTrabajadas.Location = new System.Drawing.Point(35, 184);
             this.lblHorasTrabajadas.Name = "lblHorasTrabajadas";
             this.lblHorasTrabajadas.Size = new System.Drawing.Size(94, 13);
             this.lblHorasTrabajadas.TabIndex = 9;
@@ -145,7 +145,7 @@
             // 
             // txtHorasTrabajadas
             // 
-            this.txtHorasTrabajadas.Location = new System.Drawing.Point(138, 155);
+            this.txtHorasTrabajadas.Location = new System.Drawing.Point(135, 181);
             this.txtHorasTrabajadas.Name = "txtHorasTrabajadas";
             this.txtHorasTrabajadas.Size = new System.Drawing.Size(135, 20);
             this.txtHorasTrabajadas.TabIndex = 10;
@@ -153,28 +153,28 @@
             // 
             // txtDepartamento
             // 
-            this.txtDepartamento.Location = new System.Drawing.Point(138, 50);
+            this.txtDepartamento.Location = new System.Drawing.Point(135, 76);
             this.txtDepartamento.Name = "txtDepartamento";
             this.txtDepartamento.Size = new System.Drawing.Size(135, 20);
             this.txtDepartamento.TabIndex = 13;
             // 
             // txtCargo
             // 
-            this.txtCargo.Location = new System.Drawing.Point(138, 76);
+            this.txtCargo.Location = new System.Drawing.Point(135, 102);
             this.txtCargo.Name = "txtCargo";
             this.txtCargo.Size = new System.Drawing.Size(135, 20);
             this.txtCargo.TabIndex = 14;
             // 
             // txtMarcacionEntrada
             // 
-            this.txtMarcacionEntrada.Location = new System.Drawing.Point(138, 101);
+            this.txtMarcacionEntrada.Location = new System.Drawing.Point(135, 127);
             this.txtMarcacionEntrada.Name = "txtMarcacionEntrada";
             this.txtMarcacionEntrada.Size = new System.Drawing.Size(135, 20);
             this.txtMarcacionEntrada.TabIndex = 15;
             // 
             // txtMarcacionSalida
             // 
-            this.txtMarcacionSalida.Location = new System.Drawing.Point(138, 126);
+            this.txtMarcacionSalida.Location = new System.Drawing.Point(135, 152);
             this.txtMarcacionSalida.Name = "txtMarcacionSalida";
             this.txtMarcacionSalida.Size = new System.Drawing.Size(135, 20);
             this.txtMarcacionSalida.TabIndex = 16;
@@ -190,7 +190,7 @@
             // 
             this.lblHoraActual.AutoSize = true;
             this.lblHoraActual.Font = new System.Drawing.Font("Microsoft YaHei UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHoraActual.Location = new System.Drawing.Point(64, 232);
+            this.lblHoraActual.Location = new System.Drawing.Point(61, 258);
             this.lblHoraActual.Name = "lblHoraActual";
             this.lblHoraActual.Size = new System.Drawing.Size(0, 31);
             this.lblHoraActual.TabIndex = 17;

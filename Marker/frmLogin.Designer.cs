@@ -33,14 +33,13 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
             this.lineShape2 = new Microsoft.VisualBasic.PowerPacks.LineShape();
+            this.lineShape1 = new Microsoft.VisualBasic.PowerPacks.LineShape();
             this.txtUsuario = new System.Windows.Forms.TextBox();
             this.txtPass = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnLogin = new System.Windows.Forms.Button();
-            this.linkPass = new System.Windows.Forms.LinkLabel();
             this.btnCerrar = new System.Windows.Forms.PictureBox();
             this.btnMinimizar = new System.Windows.Forms.PictureBox();
-            this.lineShape1 = new Microsoft.VisualBasic.PowerPacks.LineShape();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
@@ -90,6 +89,17 @@
             this.lineShape2.X2 = 676;
             this.lineShape2.Y1 = 147;
             this.lineShape2.Y2 = 147;
+            // 
+            // lineShape1
+            // 
+            this.lineShape1.BorderColor = System.Drawing.Color.DimGray;
+            this.lineShape1.Enabled = false;
+            this.lineShape1.Name = "lineShape1";
+            this.lineShape1.X1 = 273;
+            this.lineShape1.X2 = 676;
+            this.lineShape1.Y1 = 106;
+            this.lineShape1.Y2 = 106;
+            this.lineShape1.Click += new System.EventHandler(this.lineShape1_Click);
             // 
             // txtUsuario
             // 
@@ -146,19 +156,7 @@
             this.btnLogin.TabIndex = 3;
             this.btnLogin.Text = "ACCEDER";
             this.btnLogin.UseVisualStyleBackColor = false;
-            // 
-            // linkPass
-            // 
-            this.linkPass.ActiveLinkColor = System.Drawing.Color.Salmon;
-            this.linkPass.AutoSize = true;
-            this.linkPass.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkPass.LinkColor = System.Drawing.Color.DimGray;
-            this.linkPass.Location = new System.Drawing.Point(382, 226);
-            this.linkPass.Name = "linkPass";
-            this.linkPass.Size = new System.Drawing.Size(204, 17);
-            this.linkPass.TabIndex = 0;
-            this.linkPass.TabStop = true;
-            this.linkPass.Text = "¿Has olvidado tu contraseña?";
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
             // btnCerrar
             // 
@@ -182,17 +180,6 @@
             this.btnMinimizar.TabStop = false;
             this.btnMinimizar.Click += new System.EventHandler(this.btnMinimizar_Click);
             // 
-            // lineShape1
-            // 
-            this.lineShape1.BorderColor = System.Drawing.Color.DimGray;
-            this.lineShape1.Enabled = false;
-            this.lineShape1.Name = "lineShape1";
-            this.lineShape1.X1 = 273;
-            this.lineShape1.X2 = 676;
-            this.lineShape1.Y1 = 106;
-            this.lineShape1.Y2 = 106;
-            this.lineShape1.Click += new System.EventHandler(this.lineShape1_Click);
-            // 
             // frmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -203,7 +190,6 @@
             this.ClientSize = new System.Drawing.Size(780, 330);
             this.Controls.Add(this.btnMinimizar);
             this.Controls.Add(this.btnCerrar);
-            this.Controls.Add(this.linkPass);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtPass);
@@ -236,7 +222,6 @@
         private System.Windows.Forms.TextBox txtPass;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnLogin;
-        private System.Windows.Forms.LinkLabel linkPass;
         private System.Windows.Forms.PictureBox btnCerrar;
         private System.Windows.Forms.PictureBox btnMinimizar;
         private System.Windows.Forms.PictureBox pictureBox3;

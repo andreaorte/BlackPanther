@@ -117,5 +117,52 @@ namespace Marker
         {
 
         }
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            if (txtUsuario.Text.Trim().Equals(string.Empty))
+            {
+                MessageBox.Show("Favor Ingresa el Usuario");
+                return;
+            }
+
+            if (txtPass.Text.Trim().Equals(string.Empty))
+            {
+                MessageBox.Show("Favor Ingresa la clave");
+                return;
+            }
+            try
+            {
+                if (Usuario.Autenticar(txtUsuario.Text, txtPass.Text))
+                {
+                    this.Hide();
+                    MessageBox.Show("Bienvenido " + txtUsuario.Text);
+                    if (txtUsuario.Text== "administrador")
+                    { 
+                    frmMenu elmenuPrincipal = new frmMenu();
+                    elmenuPrincipal.ShowDialog();
+                    this.Close();
+                    }
+                    else
+                    {
+                        frmMarcacion marcacion = new frmMarcacion();
+                        marcacion.ShowDialog();
+                        this.Close();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Usuario o contraseña incorrectos");
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Ha ocurrido un error: " + ex.Message);
+            }
+
+        }
+
     }
 }
+

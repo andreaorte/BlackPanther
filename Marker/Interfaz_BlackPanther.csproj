@@ -51,6 +51,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CrearUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CrearUsuario.Designer.cs">
+      <DependentUpon>CrearUsuario.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmBloque.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -111,6 +117,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="CrearUsuario.resx">
+      <DependentUpon>CrearUsuario.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmBloque.resx">
       <DependentUpon>frmBloque.cs</DependentUpon>
     </EmbeddedResource>

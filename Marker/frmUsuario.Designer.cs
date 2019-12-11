@@ -30,8 +30,6 @@
         {
             this.dtpFechaIngreso = new System.Windows.Forms.DateTimePicker();
             this.lblFechaIngreso = new System.Windows.Forms.Label();
-            this.lblTipoUsuario = new System.Windows.Forms.Label();
-            this.cboTipoUsuario = new System.Windows.Forms.ComboBox();
             this.lblCargo = new System.Windows.Forms.Label();
             this.cboCargo = new System.Windows.Forms.ComboBox();
             this.lblDepartamnto = new System.Windows.Forms.Label();
@@ -52,17 +50,13 @@
             this.txtId = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.txtCorreo = new System.Windows.Forms.TextBox();
-            this.txtPassword = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtUsuario = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // dtpFechaIngreso
             // 
             this.dtpFechaIngreso.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFechaIngreso.Location = new System.Drawing.Point(461, 272);
+            this.dtpFechaIngreso.Location = new System.Drawing.Point(461, 243);
             this.dtpFechaIngreso.Name = "dtpFechaIngreso";
             this.dtpFechaIngreso.Size = new System.Drawing.Size(170, 20);
             this.dtpFechaIngreso.TabIndex = 10;
@@ -70,30 +64,11 @@
             // lblFechaIngreso
             // 
             this.lblFechaIngreso.AutoSize = true;
-            this.lblFechaIngreso.Location = new System.Drawing.Point(351, 272);
+            this.lblFechaIngreso.Location = new System.Drawing.Point(351, 243);
             this.lblFechaIngreso.Name = "lblFechaIngreso";
             this.lblFechaIngreso.Size = new System.Drawing.Size(90, 13);
             this.lblFechaIngreso.TabIndex = 88;
             this.lblFechaIngreso.Text = "Fecha de Ingreso";
-            // 
-            // lblTipoUsuario
-            // 
-            this.lblTipoUsuario.AutoSize = true;
-            this.lblTipoUsuario.Location = new System.Drawing.Point(351, 236);
-            this.lblTipoUsuario.Name = "lblTipoUsuario";
-            this.lblTipoUsuario.Size = new System.Drawing.Size(85, 13);
-            this.lblTipoUsuario.TabIndex = 87;
-            this.lblTipoUsuario.Text = "Tipo de Usuario:";
-            this.lblTipoUsuario.Click += new System.EventHandler(this.lblTipoUsuario_Click);
-            // 
-            // cboTipoUsuario
-            // 
-            this.cboTipoUsuario.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboTipoUsuario.FormattingEnabled = true;
-            this.cboTipoUsuario.Location = new System.Drawing.Point(483, 233);
-            this.cboTipoUsuario.Name = "cboTipoUsuario";
-            this.cboTipoUsuario.Size = new System.Drawing.Size(108, 21);
-            this.cboTipoUsuario.TabIndex = 9;
             // 
             // lblCargo
             // 
@@ -205,7 +180,7 @@
             // 
             // btnLimpiar
             // 
-            this.btnLimpiar.Location = new System.Drawing.Point(556, 425);
+            this.btnLimpiar.Location = new System.Drawing.Point(553, 387);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(75, 23);
             this.btnLimpiar.TabIndex = 16;
@@ -215,7 +190,7 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(475, 425);
+            this.btnCancelar.Location = new System.Drawing.Point(472, 387);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 15;
@@ -225,7 +200,7 @@
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(394, 425);
+            this.btnGuardar.Location = new System.Drawing.Point(391, 387);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(75, 23);
             this.btnGuardar.TabIndex = 14;
@@ -269,50 +244,18 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(351, 367);
+            this.label2.Location = new System.Drawing.Point(351, 281);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(41, 13);
             this.label2.TabIndex = 96;
             this.label2.Text = "Correo:";
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(351, 339);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(56, 13);
-            this.label3.TabIndex = 95;
-            this.label3.Text = "Password:";
-            // 
             // txtCorreo
             // 
-            this.txtCorreo.Location = new System.Drawing.Point(483, 366);
+            this.txtCorreo.Location = new System.Drawing.Point(483, 280);
             this.txtCorreo.Name = "txtCorreo";
             this.txtCorreo.Size = new System.Drawing.Size(148, 20);
             this.txtCorreo.TabIndex = 13;
-            // 
-            // txtPassword
-            // 
-            this.txtPassword.Location = new System.Drawing.Point(483, 336);
-            this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(148, 20);
-            this.txtPassword.TabIndex = 12;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(351, 310);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(43, 13);
-            this.label4.TabIndex = 94;
-            this.label4.Text = "Usuario";
-            // 
-            // txtUsuario
-            // 
-            this.txtUsuario.Location = new System.Drawing.Point(483, 308);
-            this.txtUsuario.Name = "txtUsuario";
-            this.txtUsuario.Size = new System.Drawing.Size(148, 20);
-            this.txtUsuario.TabIndex = 11;
             // 
             // frmUsuario
             // 
@@ -320,17 +263,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(744, 515);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.txtCorreo);
-            this.Controls.Add(this.txtPassword);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.txtUsuario);
             this.Controls.Add(this.txtId);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dtpFechaIngreso);
             this.Controls.Add(this.lblFechaIngreso);
-            this.Controls.Add(this.lblTipoUsuario);
-            this.Controls.Add(this.cboTipoUsuario);
             this.Controls.Add(this.lblCargo);
             this.Controls.Add(this.cboCargo);
             this.Controls.Add(this.lblDepartamnto);
@@ -360,8 +297,6 @@
 
         private System.Windows.Forms.DateTimePicker dtpFechaIngreso;
         private System.Windows.Forms.Label lblFechaIngreso;
-        private System.Windows.Forms.Label lblTipoUsuario;
-        private System.Windows.Forms.ComboBox cboTipoUsuario;
         private System.Windows.Forms.Label lblCargo;
         private System.Windows.Forms.ComboBox cboCargo;
         private System.Windows.Forms.Label lblDepartamnto;
@@ -382,10 +317,6 @@
         private System.Windows.Forms.TextBox txtId;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtCorreo;
-        private System.Windows.Forms.TextBox txtPassword;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtUsuario;
     }
 }

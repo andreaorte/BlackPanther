@@ -44,10 +44,7 @@ namespace Marker
             txtApellido.Text = "";            
             cboDepartamento.SelectedItem = null;
             cboCargo.SelectedItem = null;
-            cboTipoUsuario.SelectedItem = null;
             dtpFechaIngreso.Value = DateTime.Now;
-            txtUsuario.Text = "";
-            txtPassword.Text = "";
             txtNroDocumento.Text = "";
             txtCorreo.Text = "";
 
@@ -55,7 +52,7 @@ namespace Marker
         private void frmUsuario_Load(object sender, EventArgs e)
         {
 
-            cboTipoUsuario.DataSource = Enum.GetValues(typeof(TipoUsuario));
+ 
             cboDepartamento.DataSource = Departamento.ObtenerDepartamento();
             cboDepartamento.SelectedItem = null;
             cboCargo.DataSource = Cargo.ObtenerCargo();
@@ -75,10 +72,7 @@ namespace Marker
             txtNroDocumento.Enabled = false;
             cboCargo.Enabled = false;
             cboDepartamento.Enabled = false;
-            cboTipoUsuario.Enabled = false;
             dtpFechaIngreso.Enabled = false;
-            txtUsuario.Enabled = false;
-            txtPassword.Enabled = false;
             txtCorreo.Enabled = false;
 
             btnGuardar.Enabled = false;
@@ -100,10 +94,7 @@ namespace Marker
             txtNroDocumento.Enabled = true;
             cboCargo.Enabled = true;
             cboDepartamento.Enabled = true;
-            cboTipoUsuario.Enabled = true;
             dtpFechaIngreso.Enabled = true;
-            txtUsuario.Enabled = true;
-            txtPassword.Enabled = true;
             txtCorreo.Enabled = true;
             
 
@@ -170,10 +161,7 @@ namespace Marker
                 txtApellido.Text = usuario.Apellido;
                 cboDepartamento.SelectedItem = usuario.departamento;
                 cboCargo.SelectedItem = usuario.cargo;
-                cboTipoUsuario.SelectedItem = usuario.tipoUsuario;
                 dtpFechaIngreso.Value = usuario.FechaIngreso;
-                txtUsuario.Text = usuario.Usuario;
-                txtPassword.Text = usuario.Password;
                 txtCorreo.Text = usuario.Correo;
                 
 
@@ -225,10 +213,7 @@ namespace Marker
             usuario.Apellido = txtApellido.Text;
             usuario.departamento = (Departamento)cboDepartamento.SelectedItem;
             usuario.cargo = (Cargo)cboCargo.SelectedItem;
-            usuario.tipoUsuario = (TipoUsuario)cboTipoUsuario.SelectedItem;
             usuario.FechaIngreso = dtpFechaIngreso.Value.Date;
-            usuario.Usuario = txtUsuario.Text;
-            usuario.Password = txtPassword.Text;
             usuario.Correo = txtCorreo.Text;
 
 
