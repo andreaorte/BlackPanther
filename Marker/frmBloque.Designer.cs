@@ -45,6 +45,10 @@
             this.dtpFechaSalida = new System.Windows.Forms.DateTimePicker();
             this.lblTipoHora = new System.Windows.Forms.Label();
             this.cboTipoHora = new System.Windows.Forms.ComboBox();
+            this.lblId = new System.Windows.Forms.Label();
+            this.txtId = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lstBloque
@@ -59,7 +63,7 @@
             // lblINombre
             // 
             this.lblINombre.AutoSize = true;
-            this.lblINombre.Location = new System.Drawing.Point(294, 34);
+            this.lblINombre.Location = new System.Drawing.Point(283, 88);
             this.lblINombre.Name = "lblINombre";
             this.lblINombre.Size = new System.Drawing.Size(47, 13);
             this.lblINombre.TabIndex = 54;
@@ -68,7 +72,7 @@
             // cbobNombre
             // 
             this.cbobNombre.FormattingEnabled = true;
-            this.cbobNombre.Location = new System.Drawing.Point(386, 30);
+            this.cbobNombre.Location = new System.Drawing.Point(393, 84);
             this.cbobNombre.Name = "cbobNombre";
             this.cbobNombre.Size = new System.Drawing.Size(293, 21);
             this.cbobNombre.TabIndex = 62;
@@ -105,7 +109,7 @@
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(312, 210);
+            this.btnGuardar.Location = new System.Drawing.Point(321, 334);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(75, 23);
             this.btnGuardar.TabIndex = 69;
@@ -115,7 +119,7 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(393, 210);
+            this.btnCancelar.Location = new System.Drawing.Point(402, 334);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 70;
@@ -125,7 +129,7 @@
             // 
             // btnLimpiar
             // 
-            this.btnLimpiar.Location = new System.Drawing.Point(481, 210);
+            this.btnLimpiar.Location = new System.Drawing.Point(490, 334);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(75, 23);
             this.btnLimpiar.TabIndex = 71;
@@ -136,7 +140,7 @@
             // dtpHoraEntrada
             // 
             this.dtpHoraEntrada.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dtpHoraEntrada.Location = new System.Drawing.Point(600, 122);
+            this.dtpHoraEntrada.Location = new System.Drawing.Point(393, 156);
             this.dtpHoraEntrada.Name = "dtpHoraEntrada";
             this.dtpHoraEntrada.Size = new System.Drawing.Size(170, 20);
             this.dtpHoraEntrada.TabIndex = 72;
@@ -145,7 +149,7 @@
             // dtpHoraSalida
             // 
             this.dtpHoraSalida.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dtpHoraSalida.Location = new System.Drawing.Point(600, 150);
+            this.dtpHoraSalida.Location = new System.Drawing.Point(393, 184);
             this.dtpHoraSalida.Name = "dtpHoraSalida";
             this.dtpHoraSalida.Size = new System.Drawing.Size(170, 20);
             this.dtpHoraSalida.TabIndex = 73;
@@ -153,7 +157,7 @@
             // lblInicio
             // 
             this.lblInicio.AutoSize = true;
-            this.lblInicio.Location = new System.Drawing.Point(285, 129);
+            this.lblInicio.Location = new System.Drawing.Point(283, 163);
             this.lblInicio.Name = "lblInicio";
             this.lblInicio.Size = new System.Drawing.Size(88, 13);
             this.lblInicio.TabIndex = 74;
@@ -162,7 +166,7 @@
             // lblFin
             // 
             this.lblFin.AutoSize = true;
-            this.lblFin.Location = new System.Drawing.Point(285, 156);
+            this.lblFin.Location = new System.Drawing.Point(283, 190);
             this.lblFin.Name = "lblFin";
             this.lblFin.Size = new System.Drawing.Size(80, 13);
             this.lblFin.TabIndex = 75;
@@ -170,14 +174,14 @@
             // 
             // dtpFechaEntrada
             // 
-            this.dtpFechaEntrada.Location = new System.Drawing.Point(386, 122);
+            this.dtpFechaEntrada.Location = new System.Drawing.Point(393, 232);
             this.dtpFechaEntrada.Name = "dtpFechaEntrada";
             this.dtpFechaEntrada.Size = new System.Drawing.Size(191, 20);
             this.dtpFechaEntrada.TabIndex = 76;
             // 
             // dtpFechaSalida
             // 
-            this.dtpFechaSalida.Location = new System.Drawing.Point(386, 149);
+            this.dtpFechaSalida.Location = new System.Drawing.Point(393, 259);
             this.dtpFechaSalida.Name = "dtpFechaSalida";
             this.dtpFechaSalida.Size = new System.Drawing.Size(191, 20);
             this.dtpFechaSalida.TabIndex = 77;
@@ -185,7 +189,7 @@
             // lblTipoHora
             // 
             this.lblTipoHora.AutoSize = true;
-            this.lblTipoHora.Location = new System.Drawing.Point(294, 68);
+            this.lblTipoHora.Location = new System.Drawing.Point(283, 122);
             this.lblTipoHora.Name = "lblTipoHora";
             this.lblTipoHora.Size = new System.Drawing.Size(70, 13);
             this.lblTipoHora.TabIndex = 78;
@@ -194,16 +198,54 @@
             // cboTipoHora
             // 
             this.cboTipoHora.FormattingEnabled = true;
-            this.cboTipoHora.Location = new System.Drawing.Point(386, 65);
+            this.cboTipoHora.Location = new System.Drawing.Point(393, 119);
             this.cboTipoHora.Name = "cboTipoHora";
             this.cboTipoHora.Size = new System.Drawing.Size(191, 21);
             this.cboTipoHora.TabIndex = 79;
+            // 
+            // lblId
+            // 
+            this.lblId.AutoSize = true;
+            this.lblId.Location = new System.Drawing.Point(283, 53);
+            this.lblId.Name = "lblId";
+            this.lblId.Size = new System.Drawing.Size(19, 13);
+            this.lblId.TabIndex = 80;
+            this.lblId.Text = "Id:";
+            // 
+            // txtId
+            // 
+            this.txtId.Location = new System.Drawing.Point(393, 50);
+            this.txtId.Name = "txtId";
+            this.txtId.Size = new System.Drawing.Size(100, 20);
+            this.txtId.TabIndex = 81;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(283, 265);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(69, 13);
+            this.label1.TabIndex = 83;
+            this.label1.Text = "Fecha Salida";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(283, 238);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(77, 13);
+            this.label2.TabIndex = 82;
+            this.label2.Text = "Fecha Entrada";
             // 
             // frmBloque
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(798, 500);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.txtId);
+            this.Controls.Add(this.lblId);
             this.Controls.Add(this.cboTipoHora);
             this.Controls.Add(this.lblTipoHora);
             this.Controls.Add(this.dtpFechaSalida);
@@ -248,5 +290,9 @@
         private System.Windows.Forms.DateTimePicker dtpFechaSalida;
         private System.Windows.Forms.Label lblTipoHora;
         private System.Windows.Forms.ComboBox cboTipoHora;
+        private System.Windows.Forms.Label lblId;
+        private System.Windows.Forms.TextBox txtId;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }

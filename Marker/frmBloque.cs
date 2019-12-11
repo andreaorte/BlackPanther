@@ -69,7 +69,9 @@ namespace Marker
 
         private void LimpiarFormulario()
         {
+            txtId.Text = "";
             cbobNombre.SelectedItem = null;
+            cboTipoHora.SelectedItem = null;
             dtpHoraEntrada.Value = DateTime.Now;
             dtpHoraSalida.Value = DateTime.Now;
             dtpFechaEntrada.Value = DateTime.Now;
@@ -78,20 +80,21 @@ namespace Marker
         }
         private void frmBloque_Load(object sender, EventArgs e)
         {
-
-            ActualizarListaBloque();
             cboTipoHora.DataSource = Enum.GetValues(typeof(TipoHora));
             cbobNombre.DataSource = Usuari.ObtenerUsuarios();
             cbobNombre.SelectedItem = null;
-            cboTipoHora.SelectedItem = null;
+            LimpiarFormulario();
             BloquearFormulario();
+            ActualizarListaBloque();
         }
 
 
 
         private void BloquearFormulario()
         {
+            txtId.Enabled = false;
             cbobNombre.Enabled = false;
+            cboTipoHora.Enabled = false;
             dtpHoraEntrada.Enabled = false;
             dtpHoraSalida.Enabled = false;
             btnGuardar.Enabled = false;
@@ -225,27 +228,42 @@ namespace Marker
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            modo = "AGREGAR";
+            modo = "I";
             LimpiarFormulario();
             DesbloquearFormulario();
-            cbobNombre.Focus();
         }
 
         private void lstBloque_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Bloque bloque = (Bloque)lstBloque.SelectedItem;
-
-            if (bloque != null)
+            if (lstBloque.SelectedItem != null)
             {
+
+                Bloque bloque = (Bloque)lstBloque.SelectedItem;
+                txtId.Text = Convert.ToString(bloque.Id);
                 cbobNombre.SelectedItem = bloque.NombreUsuario;
+                cboTipoHora.SelectedItem = bloque.Tipo_Hora;
                 dtpHoraEntrada.Value = bloque.HoraEntrada;
                 dtpHoraSalida.Value = bloque.HoraSalida;
-                dtpFechaEntrada.Value = bloque.FechaEntrada;
+                dtpFechaEntrada.Value = bloque.FechaSalida;
                 dtpFechaSalida.Value = bloque.FechaSalida;
 
 
 
             }
+
+            //Bloque bloque = (Bloque)lstBloque.SelectedItem;
+
+            //if (bloque != null)
+            //{
+            //    cbobNombre.SelectedItem = bloque.NombreUsuario;
+            //    dtpHoraEntrada.Value = bloque.HoraEntrada;
+            //    dtpHoraSalida.Value = bloque.HoraSalida;
+            //    dtpFechaEntrada.Value = bloque.FechaEntrada;
+            //    dtpFechaSalida.Value = bloque.FechaSalida;
+
+
+
+            //}
 
 
         }

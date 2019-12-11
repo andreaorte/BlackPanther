@@ -178,5 +178,26 @@ namespace ClasesMarcacion
             cmd.Parameters.Add(p11);
             return cmd;
         }
+
+        public static Usuari ObtenerUsuario(int id)
+        {
+            Usuari usuario = null;
+
+            if (listarUsuario.Count == 0)
+            {
+                Usuari.ObtenerUsuarios();
+            }
+
+            foreach (Usuari u in listarUsuario)
+            {
+                if (u.Id == id)
+                {
+                    usuario = u;
+                    break;
+                }
+            }
+
+            return usuario;
+        }
     }
 }
