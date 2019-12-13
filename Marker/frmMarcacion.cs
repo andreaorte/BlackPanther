@@ -56,7 +56,13 @@ namespace Marker
 
         private Marcacion ObtenerFormularioMarcacion()
         {
+
             
+
+            //Cargo cargo = new Cargo();
+            //cargo.idCargo = Convert.ToInt16(txtIdCargo.Text); 
+           
+
             if (modo == "entrada")
             {
                 DateTime hora;
@@ -76,12 +82,17 @@ namespace Marker
 
             }
             Marcacion m = new Marcacion();
+
+            if (!string.IsNullOrEmpty(txtId.Text))
+            {
+                m.Id = Convert.ToInt32(txtId.Text);
+            }
             m.empleado = (Usuari)cboEmpleado.SelectedItem;
             m.MarcacionEntrada = txtMarcacionEntrada.Text;
             m.MarcacionSalida = txtMarcacionSalida.Text;
             m.HorasTrabajadas = txtHorasTrabajadas.Text;
             m.FechaMarcacion = dtpFechaMarcacion.Value.Date;
-
+           
 
             return m;
         }
@@ -111,6 +122,8 @@ namespace Marker
             txtMarcacionEntrada.Enabled = false;
             txtMarcacionSalida.Enabled = false;
             txtHorasTrabajadas.Enabled = false;
+            txtId.Enabled = false;
+            dtpFechaMarcacion.Enabled = false;
             ActualizarListaMarcacion();
 
 
@@ -146,6 +159,7 @@ namespace Marker
                 txtMarcacionEntrada.Text = m.MarcacionEntrada;
                 txtMarcacionSalida.Text = m.MarcacionSalida;
                 txtHorasTrabajadas.Text = m.HorasTrabajadas;
+                txtId.Text = Convert.ToString(m.Id);
                 if ( txtMarcacionEntrada.Text != "" && txtMarcacionSalida.Text != "" )
                 {
                     BloquearEntrada();
@@ -167,33 +181,50 @@ namespace Marker
 
         private void btnMarcarSalida_Click(object sender, EventArgs e)
         {
+
+
+            //modo = "salida";
+
+            Marcacion m = ObtenerFormularioMarcacion();
             modo = "salida";
-            if (this.lstMarcacion.SelectedItems.Count == 0)
+            if (m != null)
             {
-                MessageBox.Show("Favor seleccione una fila");
-            }
-            else
-            {
-                if (txtMarcacionSalida.Text != "")
+                if (this.lstMarcacion.SelectedItems.Count == 0)
                 {
-                    btnMarcarSalida.Enabled = false;
-
+                    MessageBox.Show("Favor seleccione una fila");
                 }
-                else if (txtMarcacionSalida.Text == "")
-                
+                else
                 {
-                    int index = lstMarcacion.SelectedIndex;
-                    Marcacion m = ObtenerFormularioMarcacion();
-                    Marcacion.ActualizarMarcacion(index, m);
-                    ActualizarListaMarcacion();                  
-                   MessageBox.Show("Salida Marcada Exitosamente");
-                    BloquearSalida();
-                    //LimpiarFormulario();
-                    //txtHorasTrabajadas.Text = "";
+                    if (txtMarcacionSalida.Text != "")
+                    {
+                        btnMarcarSalida.Enabled = false;
 
+                    }
+                    else if (txtMarcacionSalida.Text == "")
+
+                    {
+
+
+                        Marcacion marcacion = ObtenerFormularioMarcacion();
+                        int index = lstMarcacion.SelectedIndex;
+                        Marcacion.ActualizarMarcacion(index, marcacion);
+                        MessageBox.Show("Salida Marcada Exitosamente");
+                      
+                        ActualizarListaMarcacion();
+                        BloquearSalida();
+                        //int index = lstMarcacion.SelectedIndex;
+                        //Marcacion.ActualizarMarcacion(index, m);
+                        //ActualizarListaMarcacion();
+                        //MessageBox.Show("Salida Marcada Exitosamente");
+                        //BloquearSalida();
+                        //LimpiarFormulario();
+                        //txtHorasTrabajadas.Text = "";
+
+                    }
                 }
-            }
 
+            }
+     
 
 
 
@@ -218,6 +249,9 @@ namespace Marker
             txtMarcacionEntrada.Text = "";
             txtMarcacionSalida.Text = "";
             dtpFechaMarcacion.Value = DateTime.Now;
+            btnMarcarEntrada.Enabled = true;
+            btnMarcarSalida.Enabled = false;
+            txtId.Text = "";
 
         }
 
@@ -228,12 +262,12 @@ namespace Marker
             double minu;
             hora = Convert.ToDouble(HoraSalida.Subtract(HoraEntrada).Hours);
             minu = Convert.ToDouble(HoraSalida.Subtract(HoraEntrada).Minutes);
-            aux = (hora+(minu / 60));
+            aux = (hora + (minu / 60));
 
 
             txtHorasTrabajadas.Text = aux.ToString();
 
-            //txtHorasTrabajadas.Text= HoraSalida.Subtract(HoraEntrada).Hours.ToString();
+            //txtHorasTrabajadas.Text = HoraSalida.Subtract(HoraEntrada).Hours.ToString();
 
         }
         private void LimpiarFormulario()

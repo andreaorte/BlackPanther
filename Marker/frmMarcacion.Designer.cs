@@ -44,6 +44,8 @@
             this.lblHoraActual = new System.Windows.Forms.Label();
             this.lblFecha = new System.Windows.Forms.Label();
             this.dtpFechaMarcacion = new System.Windows.Forms.DateTimePicker();
+            this.lblId = new System.Windows.Forms.Label();
+            this.txtId = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // lblEmpleado
@@ -178,11 +180,29 @@
             this.dtpFechaMarcacion.Size = new System.Drawing.Size(154, 20);
             this.dtpFechaMarcacion.TabIndex = 20;
             // 
+            // lblId
+            // 
+            this.lblId.AutoSize = true;
+            this.lblId.Location = new System.Drawing.Point(35, 73);
+            this.lblId.Name = "lblId";
+            this.lblId.Size = new System.Drawing.Size(19, 13);
+            this.lblId.TabIndex = 21;
+            this.lblId.Text = "Id:";
+            // 
+            // txtId
+            // 
+            this.txtId.Location = new System.Drawing.Point(135, 70);
+            this.txtId.Name = "txtId";
+            this.txtId.Size = new System.Drawing.Size(135, 20);
+            this.txtId.TabIndex = 22;
+            // 
             // frmMarcacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(802, 416);
+            this.ClientSize = new System.Drawing.Size(802, 484);
+            this.Controls.Add(this.txtId);
+            this.Controls.Add(this.lblId);
             this.Controls.Add(this.dtpFechaMarcacion);
             this.Controls.Add(this.lblFecha);
             this.Controls.Add(this.lblHoraActual);
@@ -223,5 +243,7 @@
         private System.Windows.Forms.Label lblHoraActual;
         private System.Windows.Forms.Label lblFecha;
         private System.Windows.Forms.DateTimePicker dtpFechaMarcacion;
+        private System.Windows.Forms.Label lblId;
+        private System.Windows.Forms.TextBox txtId;
     }
 }

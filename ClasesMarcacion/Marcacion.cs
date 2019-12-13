@@ -24,9 +24,6 @@ namespace ClasesMarcacion
 
         public static List<Marcacion> listaMarcacion = new List<Marcacion>();
 
-        public Marcacion() { }
-
-
         public static void AgregarMarcacion(Marcacion m)
         {
             using (SqlConnection con = new SqlConnection(SqlServer.CADENA_CONEXION))
@@ -36,6 +33,21 @@ namespace ClasesMarcacion
                 string textoCmd = "INSERT INTO Marcacion (Usuario,MarcacionEntrada, MarcacionSalida,HorasTrabajadas, FechaMarcacion)VALUES (@Usuario, @MarcacionEntrada, @MarcacionSalida, @HorasTrabajadas, @FechaMarcacion)";
                 SqlCommand cmd = new SqlCommand(textoCmd, con);
                 cmd = m.ObtenerParametros(cmd);
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+        public static void ActualizarMarcacion(int index, Marcacion m)
+        {
+
+            using (SqlConnection con = new SqlConnection(SqlServer.CADENA_CONEXION))
+            {
+                con.Open();
+                string textoCMD = "UPDATE Marcacion SET Usuario=@Usuario,  MarcacionEntrada=@MarcacionEntrada, MarcacionSalida=@MarcacionSalida,HorasTrabajadas=@HorasTrabajadas,  FechaMarcacion=@FechaMarcacion where Id = @Id";
+
+                SqlCommand cmd = new SqlCommand(textoCMD, con);
+                cmd = m.ObtenerParametros(cmd, true);
+
                 cmd.ExecuteNonQuery();
             }
         }
@@ -126,20 +138,7 @@ namespace ClasesMarcacion
         }
 
 
-        public static void ActualizarMarcacion(int index, Marcacion m)
-        {
-
-            using (SqlConnection con = new SqlConnection(SqlServer.CADENA_CONEXION))
-            {
-                con.Open();
-                string textoCMD = "UPDATE Marcacion SET Usuario=@Usuario,  MarcacionEntrada=@MarcacionEntrada, MarcacionSalida=@MarcacionSalida,HorasTrabajadas=@HorasTrabajadas,  FechaMarcacion=@FechaMarcacion where Id = @Id";
-
-                SqlCommand cmd = new SqlCommand(textoCMD, con);
-                cmd = m.ObtenerParametros(cmd, true);
-
-                cmd.ExecuteNonQuery();
-            }
-        }
+        
 
 
 
