@@ -106,6 +106,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.txtUsuario);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "CrearUsuario";
             this.Text = "CrearUsuario";
             this.Load += new System.EventHandler(this.CrearUsuario_Load);

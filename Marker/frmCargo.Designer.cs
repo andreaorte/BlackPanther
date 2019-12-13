@@ -150,7 +150,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(557, 337);
+            this.ClientSize = new System.Drawing.Size(574, 324);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.btnAgregar);
@@ -162,8 +162,10 @@
             this.Controls.Add(this.lblIdCargo);
             this.Controls.Add(this.txtNombreCargo);
             this.Controls.Add(this.txtIdCargo);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmCargo";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmCargo";
             this.Load += new System.EventHandler(this.frmCargo_Load_1);
             this.ResumeLayout(false);

@@ -261,7 +261,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(744, 515);
+            this.ClientSize = new System.Drawing.Size(740, 465);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtCorreo);
             this.Controls.Add(this.txtId);
@@ -285,6 +285,7 @@
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.lblNroDocumento);
             this.Controls.Add(this.txtNroDocumento);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "frmUsuario";
             this.Text = "frmUsuario";
             this.Load += new System.EventHandler(this.frmUsuario_Load);

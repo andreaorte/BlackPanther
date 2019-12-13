@@ -264,6 +264,7 @@
             this.Controls.Add(this.cbobNombre);
             this.Controls.Add(this.lblINombre);
             this.Controls.Add(this.lstBloque);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "frmBloque";
             this.Text = "frmBloque";
             this.Load += new System.EventHandler(this.frmBloque_Load);

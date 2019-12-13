@@ -25,24 +25,28 @@ namespace Marker
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (this.cboEmpleado.SelectedItem == null)
+                      
+                if (this.cboEmpleado.SelectedItem == null)
             {
                 MessageBox.Show("Favor seleccione un Empleado");
             }
-            else if (txtMarcacionEntrada.Text=="")  
-            {
-                modo = "entrada";
-                var m = ObtenerFormularioMarcacion();
-                Marcacion.AgregarMarcacion(m);
+            
+                else if (txtMarcacionEntrada.Text == "")
+                {
+                    modo = "entrada";
+               
+                    //var m = ObtenerFormularioMarcacion();
+                Marcacion marcacion = ObtenerFormularioMarcacion();
+                Marcacion.AgregarMarcacion(marcacion);
                 MessageBox.Show("Entrada Marcada Exitosamente");
-                DesbloquearSalida();
-                ActualizarListaMarcacion();
-                BloquearEntrada();
-                DesbloquearSalida();
-            }
-            
-           
-            
+                    DesbloquearSalida();
+                    ActualizarListaMarcacion();
+                    BloquearEntrada();
+                    DesbloquearSalida();
+                }
+
+          
+
         }
 
         private void DesbloquearSalida()
@@ -76,7 +80,9 @@ namespace Marker
             m.MarcacionEntrada = txtMarcacionEntrada.Text;
             m.MarcacionSalida = txtMarcacionSalida.Text;
             m.HorasTrabajadas = txtHorasTrabajadas.Text;
-           
+            m.FechaMarcacion = dtpFechaMarcacion.Value.Date;
+
+
             return m;
         }
 
@@ -99,22 +105,30 @@ namespace Marker
         private void frmMarcacion_Load(object sender, EventArgs e)
         {
             lblHoraActual.Text = DateTime.Now.ToLongTimeString();
-            ActualizarListaMarcacion();
+            cboEmpleado.DataSource = Usuari.ObtenerUsuarios();
             //cboEmpleado.DataSource = Usuari.ObtenerUsuario();
-            cboEmpleado.SelectedItem = null;
-            txtDepartamento.Enabled = false;
-            txtCargo.Enabled = false;
+            cboEmpleado.SelectedItem = null;           
             txtMarcacionEntrada.Enabled = false;
             txtMarcacionSalida.Enabled = false;
             txtHorasTrabajadas.Enabled = false;
-                
+            ActualizarListaMarcacion();
+
+
+            //cboDepartamento.DataSource = Departamento.ObtenerDepartamento();
+            //cboDepartamento.SelectedItem = null;
+            //cboCargo.DataSource = Cargo.ObtenerCargo();
+            //cboDepartamento.SelectedItem = null;
+            //LimpiarFormulario();
+            //BloquearFormulario();
+            //ActualizarListaUsuario();
+
         }
 
         private void ActualizarListaMarcacion()
         {
 
             lstMarcacion.DataSource = null;
-            lstMarcacion.DataSource = Marcacion.ObtenerMarcacion();
+            lstMarcacion.DataSource = Marcacion.ObtenerMarcaciones();
         }
 
         private void lblMarcacionEntrada_Click(object sender, EventArgs e)
@@ -147,9 +161,8 @@ namespace Marker
                 
              
             }
-            
 
-           
+
         }
 
         private void btnMarcarSalida_Click(object sender, EventArgs e)
@@ -170,11 +183,12 @@ namespace Marker
                 
                 {
                     int index = lstMarcacion.SelectedIndex;
-                    Marcacion.listaMarcacion[index] = ObtenerFormularioMarcacion();
+                    Marcacion m = ObtenerFormularioMarcacion();
+                    Marcacion.ActualizarMarcacion(index, m);
                     ActualizarListaMarcacion();                  
                    MessageBox.Show("Salida Marcada Exitosamente");
                     BloquearSalida();
-                    LimpiarFormulario();
+                    //LimpiarFormulario();
                     //txtHorasTrabajadas.Text = "";
 
                 }
@@ -199,8 +213,11 @@ namespace Marker
 
         private void cboEmpleado_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
-            LimpiarFormulario();
+
+            txtHorasTrabajadas.Text = "";
+            txtMarcacionEntrada.Text = "";
+            txtMarcacionSalida.Text = "";
+            dtpFechaMarcacion.Value = DateTime.Now;
 
         }
 
